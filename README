@@ -1,0 +1,12 @@
+The purpose of this repository is to provide a collection of
+implementations of trees.
+
+In contrast to existing libraries such as cl-containers, we do not
+want to impose a particular use for the trees.  Instead, we aim for a
+stratified design, allowing client code to choose between different
+levels of abstraction.
+
+As a consequence of this policy, we provide low-level interfaces where
+the concrete representation is exposed, but also high level interfaces
+where the trees can be used as search trees or as trees that represent
+sequences of objects.

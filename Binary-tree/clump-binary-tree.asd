@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "binary-tree")))
+   (:file "binary-tree")
+   (:file "docstrings-english")))

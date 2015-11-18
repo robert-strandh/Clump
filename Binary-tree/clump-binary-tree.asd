@@ -6,4 +6,5 @@
   :components
   ((:file "packages")
    (:file "binary-tree")
+   (:file "conditions")
    (:file "docstrings-english")))

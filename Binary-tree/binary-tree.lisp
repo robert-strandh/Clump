@@ -12,3 +12,9 @@
 (defgeneric node-p (tree)
   (:method (tree) nil)
   (:method ((tree node)) t))
+
+(defmethod initialize-instance :before ((object node) &key left right)
+  (unless (or (null left) (node-p left))
+    (error 'invalid-binary-tree :tree left))
+  (unless (or (null right) (node-p right))
+    (error 'invalid-binary-tree :tree right)))

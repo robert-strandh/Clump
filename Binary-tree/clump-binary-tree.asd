@@ -7,4 +7,5 @@
   ((:file "packages")
    (:file "binary-tree")
    (:file "conditions")
+   (:file "rotation")
    (:file "docstrings-english")))

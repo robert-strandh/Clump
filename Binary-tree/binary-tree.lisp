@@ -8,3 +8,7 @@
 (defclass node ()
   ((%left :initarg :left :initform nil :accessor left)
    (%right :initarg :right :initform nil :accessor right)))
+
+(defgeneric node-p (tree)
+  (:method (tree) nil)
+  (:method ((tree node)) t))

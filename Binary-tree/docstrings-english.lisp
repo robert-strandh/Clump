@@ -23,3 +23,14 @@
                    NEW may be a node or NIL.~@
                    If TREE is NIL an error of type,~@
                    INVALID-BINARY-TREE is signaled."))
+
+(setf (documentation 'rotate-left 'function)
+      (format nil "Given a binary tree TREE, apply a left rotation to it.~@
+                   If TREE is not a node, an error of type,~@
+                   INVALID-BINARY-TREE is signaled.~@
+                   If the right child of TREE is not a node, an error of type~@
+                   RIGHT-SUBTREE-MUST-BE-NON-NIL is signaled.~@
+                   The new root of the tree is returned.~@
+                   If TREE has a parent node, no provision is made~@
+                   for replacing TREE with the return value of this function.~@
+                   Client code is responsible for doing that."))

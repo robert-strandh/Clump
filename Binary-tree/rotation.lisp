@@ -1,5 +1,5 @@
 (cl:in-package #:clump-binary-tree)
 
-(defgeneric rotate-left (node))
+(defgeneric rotate-left (tree))
 
-(defgeneric rotate-right (node))
+(defgeneric rotate-right (tree))

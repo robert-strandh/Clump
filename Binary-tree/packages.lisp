@@ -4,4 +4,6 @@
   (:use #:common-lisp)
   (:export #:node
 	   #:left
-	   #:right))
+	   #:right
+	   #:rotate-left
+	   #:rotate-right))

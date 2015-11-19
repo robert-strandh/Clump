@@ -8,4 +8,5 @@
 	   #:rotate-left
 	   #:rotate-right
 	   #:invalid-binary-tree
-	   #:right-subtree-must-be-non-nil))
+	   #:right-subtree-must-be-non-nil
+	   #:left-subtree-must-be-non-nil))

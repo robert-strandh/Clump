@@ -37,6 +37,9 @@
 	  (left r) tree)
     r))
 
+(defmethod rotate-right (tree)
+  (error 'invalid-binary-tree :tree tree))
+
 ;;; Given a tree with the following shape:
 ;;;
 ;;;          tree

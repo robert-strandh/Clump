@@ -16,3 +16,10 @@
                    NEW may be a node or NIL.~@
                    If TREE is NIL an error of type,~@
                    INVALID-BINARY-TREE is signaled."))
+
+(setf (documentation '(setf right) 'function)
+      (format nil "Given two binary trees, NEW and TREE,~@
+                   make NEW the new right child of TREE.~@
+                   NEW may be a node or NIL.~@
+                   If TREE is NIL an error of type,~@
+                   INVALID-BINARY-TREE is signaled."))

@@ -10,12 +10,12 @@
 ;;; Given a tree with the following shape:
 ;;;
 ;;;         tree
+;;;         /  \
 ;;;        /    \
-;;;       /      \
-;;;      l       r
-;;;             / \
-;;;            /   \
-;;;           rl   rr
+;;;       l     r
+;;;            / \
+;;;           /   \
+;;;          rl   rr
 ;;;
 ;;; we turn it into a tree with this shape:
 ;;;
@@ -23,9 +23,9 @@
 ;;;          / \
 ;;;         /   \
 ;;;       tree  rr
-;;;       /   \
-;;;      /     \
-;;;     l      rl
+;;;       /  \
+;;;      /    \
+;;;     l     rl
 ;;;
 ;;; The node R is returned
 (defmethod rotate-left ((tree node))
@@ -36,3 +36,33 @@
     (setf (right tree) rl
 	  (left r) tree)
     r))
+
+;;; Given a tree with the following shape:
+;;;
+;;;          tree
+;;;          /  \
+;;;         /    \
+;;;        l      r
+;;;       / \
+;;;      /   \
+;;;     ll   lr
+;;;
+;;; we turn it into a tree with this shape:
+;;;
+;;;         l
+;;;        / \
+;;;       /   \
+;;;      ll   tree
+;;;           /  \
+;;;          /    \
+;;;         lr     r
+;;;
+;;; The node L is returned
+(defmethod rotate-right ((tree node))
+  (when (null (left tree))
+    (error 'left-subtree-must-be-non-nil :tree tree))
+  (let* ((l (left tree))
+	 (lr (right l)))
+    (setf (left tree) lr
+	  (right l) tree)
+    l))

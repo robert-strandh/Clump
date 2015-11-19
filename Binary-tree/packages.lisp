@@ -7,4 +7,5 @@
 	   #:right
 	   #:rotate-left
 	   #:rotate-right
-	   #:invalid-binary-tree))
+	   #:invalid-binary-tree
+	   #:right-subtree-must-be-non-nil))

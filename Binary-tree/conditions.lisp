@@ -8,3 +8,6 @@
 
 (define-condition right-subtree-must-be-non-nil (binary-tree-error)
   ((%tree :initarg :tree :reader tree)))
+
+(define-condition left-subtree-must-be-non-nil (binary-tree-error)
+  ((%tree :initarg :tree :reader tree)))

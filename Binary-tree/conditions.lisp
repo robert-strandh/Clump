@@ -4,4 +4,4 @@
   ())
 
 (define-condition invalid-binary-tree (binary-tree-error)
-  ())
+  ((%tree :initarg :tree :reader tree)))

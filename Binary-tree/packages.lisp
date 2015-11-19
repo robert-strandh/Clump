@@ -6,4 +6,5 @@
 	   #:left
 	   #:right
 	   #:rotate-left
-	   #:rotate-right))
+	   #:rotate-right
+	   #:invalid-binary-tree))

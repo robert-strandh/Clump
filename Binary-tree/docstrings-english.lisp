@@ -34,3 +34,14 @@
                    If TREE has a parent node, no provision is made~@
                    for replacing TREE with the return value of this function.~@
                    Client code is responsible for doing that."))
+
+(setf (documentation 'rotate-right 'function)
+      (format nil "Given a binary tree TREE, apply a right rotation to it.~@
+                   If TREE is not a node, an error of type,~@
+                   INVALID-BINARY-TREE is signaled.~@
+                   If the left child of TREE is not a node, an error of type~@
+                   LEFT-SUBTREE-MUST-BE-NON-NIL is signaled.~@
+                   The new root of the tree is returned.~@
+                   If TREE has a parent node, no provision is made~@
+                   for replacing TREE with the return value of this function.~@
+                   Client code is responsible for doing that."))

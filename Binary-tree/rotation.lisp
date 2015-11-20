@@ -32,7 +32,7 @@
 ;;;      /    \
 ;;;     l   grand-child
 ;;;
-;;; The node R is returned
+;;; The node CHILD is returned.
 (defmethod rotate-left-with-child ((node node) (child node))
   (let ((grand-child (left child)))
     (setf (right node) grand-child
@@ -40,13 +40,7 @@
     child))
 
 (defmethod rotate-left ((tree node))
-  (when (null (right tree))
-    (error 'right-subtree-must-be-non-nil :tree tree))
-  (let* ((r (right tree))
-	 (rl (left r)))
-    (setf (right tree) rl
-	  (left r) tree)
-    r))
+  (rotate-left-with-child tree (right tree)))
 
 (defmethod rotate-right (tree)
   (error 'invalid-binary-tree :tree tree))

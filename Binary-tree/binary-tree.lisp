@@ -18,3 +18,9 @@
     (error 'invalid-binary-tree :tree left))
   (unless (or (null right) (node-p right))
     (error 'invalid-binary-tree :tree right)))
+
+(defclass simple-node (node)
+  ())
+
+(defclass node-with-parent (node)
+  ((%parent :initarg :parent :initform nil :accessor parent)))

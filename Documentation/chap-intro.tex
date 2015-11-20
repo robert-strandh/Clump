@@ -1,5 +1,24 @@
 \chapter{Introduction}
 \pagenumbering{arabic}%
 
+\section{Purpose}
+
 \sysname{} is a library that supplies a collection of different kinds
 of \emph{trees}.
+
+\sysname{} differs from other libraries with trees, such as
+\texttt{cl-containers} in that it has a \emph{stratified design}.
+This design allows client code to intervene at all levels, from the
+level of near-concrete representation of the trees, up to the most
+abstract interface where the trees are used as dictionaries,
+sequences, or some other abstract data types.
+
+Also, the stratified design makes it possible for client code to use
+the lower levels of abstraction of \sysname{} in order to create
+completely new abstractions, not foreseen by this library.
+
+The price to pay for this stratified design is, of course, that lower
+abstraction levels are exposed to client code, and are therefore
+limited in the way that they can evolve.  As a consequence, we have
+tried to create these lower abstraction levels in a way that they are
+unlikely to require radical modifications.

@@ -4,4 +4,5 @@
   :depends-on (:clump-binary-tree)
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "splay-tree")))

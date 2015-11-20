@@ -9,6 +9,9 @@
 
 (defgeneric rotate-left-with-child (node child))
 
+(defmethod rotate-left-with-child ((node node) (child null))
+  (error 'right-subtree-must-be-non-nil :tree node))
+
 ;;; Given a tree with the following shape:
 ;;;
 ;;;         tree

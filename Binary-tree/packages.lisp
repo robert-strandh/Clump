@@ -8,6 +8,7 @@
 	   #:left
 	   #:right
 	   #:rotate-left
+	   #:rotate-left-with-child
 	   #:rotate-right
 	   #:invalid-binary-tree
 	   #:right-subtree-must-be-non-nil

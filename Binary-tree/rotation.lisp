@@ -7,6 +7,8 @@
 (defmethod rotate-left (tree)
   (error 'invalid-binary-tree :tree tree))
 
+(defgeneric rotate-left-with-child (node child))
+
 ;;; Given a tree with the following shape:
 ;;;
 ;;;         tree

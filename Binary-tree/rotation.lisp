@@ -33,6 +33,12 @@
 ;;;     l   grand-child
 ;;;
 ;;; The node R is returned
+(defmethod rotate-left-with-child ((node node) (child node))
+  (let ((grand-child (left child)))
+    (setf (right node) grand-child
+	  (left child) node)
+    child))
+
 (defmethod rotate-left ((tree node))
   (when (null (right tree))
     (error 'right-subtree-must-be-non-nil :tree tree))

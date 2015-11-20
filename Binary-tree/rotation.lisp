@@ -14,23 +14,23 @@
 
 ;;; Given a tree with the following shape:
 ;;;
-;;;         tree
+;;;         node
 ;;;         /  \
 ;;;        /    \
-;;;       l     r
-;;;            / \
-;;;           /   \
-;;;          rl   rr
+;;;       l    child
+;;;            /    \
+;;;           /      \
+;;;     grand-child  rr
 ;;;
 ;;; we turn it into a tree with this shape:
 ;;;
-;;;           r
+;;;           child
 ;;;          / \
 ;;;         /   \
-;;;       tree  rr
+;;;       node  rr
 ;;;       /  \
 ;;;      /    \
-;;;     l     rl
+;;;     l   grand-child
 ;;;
 ;;; The node R is returned
 (defmethod rotate-left ((tree node))

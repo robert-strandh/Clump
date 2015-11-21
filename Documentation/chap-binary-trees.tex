@@ -12,6 +12,13 @@ by this function may be either an instance of (a subclass of) the
 class \texttt{node} or \texttt{nil} if the left child of \textit{node}
 is the empty tree.
 
+\Defgeneric {right} {node}
+
+Given a node, return the right child of that node.  The value returned
+by this function may be either an instance of (a subclass of) the
+class \texttt{node} or \texttt{nil} if the right child of
+\textit{node} is the empty tree.
+
 \Defclass {simple-node}
 
 This class is a subclass of the class \texttt{node}.  It does not add

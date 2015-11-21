@@ -7,7 +7,10 @@ This class is the base class for all node types in binary trees.
 
 \Defgeneric {left} {node}
 
-Given a node, return the left child of that node.
+Given a node, return the left child of that node.  The value returned
+by this function may be either an instance of (a subclass of) the
+class \texttt{node} or \texttt{nil} if the left child of \textit{node}
+is the empty tree.
 
 \Defclass {simple-node}
 

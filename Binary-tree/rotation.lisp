@@ -47,23 +47,23 @@
 
 ;;; Given a tree with the following shape:
 ;;;
-;;;          tree
+;;;          node
 ;;;          /  \
 ;;;         /    \
-;;;        l      r
-;;;       / \
+;;;      child    r
 ;;;      /   \
-;;;     ll   lr
+;;;     /     \
+;;;    ll  grand-child
 ;;;
 ;;; we turn it into a tree with this shape:
 ;;;
-;;;         l
-;;;        / \
-;;;       /   \
-;;;      ll   tree
-;;;           /  \
-;;;          /    \
-;;;         lr     r
+;;;        child
+;;;        /   \
+;;;       /     \
+;;;      ll    node
+;;;            /  \
+;;;           /    \
+;;;   grand-child   r
 ;;;
 ;;; The node L is returned
 (defmethod rotate-right-with-child ((node node) (child node))

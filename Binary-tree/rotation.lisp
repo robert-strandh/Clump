@@ -73,10 +73,4 @@
     child))
 
 (defmethod rotate-right ((tree node))
-  (when (null (left tree))
-    (error 'left-subtree-must-be-non-nil :tree tree))
-  (let* ((l (left tree))
-	 (lr (right l)))
-    (setf (left tree) lr
-	  (right l) tree)
-    l))
+  (rotate-right-with-child tree (left tree)))

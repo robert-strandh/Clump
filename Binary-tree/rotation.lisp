@@ -45,6 +45,8 @@
 (defmethod rotate-right (tree)
   (error 'invalid-binary-tree :tree tree))
 
+(defgeneric rotate-right-with-child (node child))
+
 ;;; Given a tree with the following shape:
 ;;;
 ;;;          node

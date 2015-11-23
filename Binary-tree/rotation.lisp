@@ -47,6 +47,9 @@
 
 (defgeneric rotate-right-with-child (node child))
 
+(defmethod rotate-right-with-child ((node node) (child null))
+  (error 'left-subtree-must-be-non-nil :tree node))
+
 ;;; Given a tree with the following shape:
 ;;;
 ;;;          node

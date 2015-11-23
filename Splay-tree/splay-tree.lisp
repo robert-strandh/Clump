@@ -34,6 +34,12 @@
 
 (defgeneric splay-step-with-parent (node parent))
 
+(defmethod splay-step-with-parent ((node clump-binary-tree:node-with-parent)
+				   (parent clump-binary-tree:node-with-parent))
+  (if (eq node (clump-binary-tree:left parent))
+      (splay-step-with-right-parent node parent)
+      (splay-step-with-left-parent node parent)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP.

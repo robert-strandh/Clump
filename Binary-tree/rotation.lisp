@@ -75,8 +75,8 @@
   (let ((parent (parent node)))
     (unless (null parent)
       (if (eq node (left parent))
-	  (setq (left parent) child)
-	  (setq (right parent) child)))
+	  (setf (left parent) child)
+	  (setf (right parent) child)))
     ;; Next, we need to correct the parent slots according to changes
     ;; implied by the rotation.
     (let ((grand-child (right node)))

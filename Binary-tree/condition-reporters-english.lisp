@@ -19,3 +19,13 @@
            is NIL, but a non-NIL subtree is required:~@
            ~s"
 	  (tree condition)))
+
+(defmethod acclimation:report-condition
+    ((condition left-subtree-must-be-non-nil)
+     stream
+     (language acclimation:english))
+  (format stream
+	  "The left subtree of the following tree,~@
+           is NIL, but a non-NIL subtree is required:~@
+           ~s"
+	  (tree condition)))

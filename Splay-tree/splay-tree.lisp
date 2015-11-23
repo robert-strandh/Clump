@@ -44,6 +44,14 @@
 (defgeneric splay-step-with-right-parent-and-right-grandparent
     (node parent grandparent))
 
+(defmethod splay-step-with-right-parent-and-right-grandparent
+    ((node clump-binary-tree:node-with-parent)
+     (parent clump-binary-tree:node-with-parent)
+     (grandparent clump-binary-tree:node-with-parent))
+  (clump-binary-tree:rotate-right grandparent)
+  (clump-binary-tree:rotate-right parent)
+  node)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP-WITH-RIGHT-PARENT-AND-LEFT-GRANDPARENT.

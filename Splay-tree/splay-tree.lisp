@@ -2,6 +2,18 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT-AND-LEFT-GRANDPARENT.
+;;;
+;;; This function is called to apply a splay step to a NODE, the
+;;; PARENT of NODE, and the GRANDPARENT of NODE when it is known that
+;;; NODE is the RIGHT child of PARENT and PARENT is the RIGHT child of
+;;; GRANDPARENT.
+
+(defgeneric splay-step-with-left-parent-and-left-grandparent
+    (node parent grandparent))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT.
 ;;;
 ;;; This function is called to apply a splay step to a NODE and its

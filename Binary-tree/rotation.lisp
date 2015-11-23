@@ -67,6 +67,28 @@
 (defmethod rotate-right (tree)
   (error 'invalid-binary-tree :tree tree))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Generic function ROTATE-RIGHT-WITH-CHILD.
+;;;
+;;; Given a NODE and the left CHILD of that node, rotate right so that
+;;; CHILD becomes the root and NODE becomes the right child of CHILD.
+;;;
+;;; This function should not be called directly by client code.  It is
+;;; called by the function ROTATE-RIGHT when that function is called
+;;; with an instance of (a subclass of) NODE, passing NODE and its
+;;; left child.
+;;;
+;;; Client code can define methods on this generic function.  Such
+;;; methods may be specialized to strict subclasses of either
+;;; SIMPLE-NODE or NODE-WITH-PARENT.
+;;;
+;;; When ROTATE-RIGHT-WITH-CHILD is called from ROTATE-RIGHT, we know
+;;; that NODE is and instance of (a subclass of) NODE, and we know
+;;; that CHILD is either the empty tree (i.e., NIL) or an instance of
+;;; (a subclass of) NODE, so we do not have to take into account other
+;;; possibilities for CHILD.
+
 (defgeneric rotate-right-with-child (node child))
 
 (defmethod rotate-right-with-child ((node node) (child null))

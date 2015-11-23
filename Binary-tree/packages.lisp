@@ -7,6 +7,7 @@
 	   #:node-with-parent
 	   #:left
 	   #:right
+	   #:parent
 	   #:rotate-left
 	   #:rotate-left-with-child
 	   #:rotate-right

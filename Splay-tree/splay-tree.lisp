@@ -2,6 +2,15 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT.
+;;;
+;;; This function is called to apply a splay step to a NODE and its
+;;; PARENT when it is known that NODE is the RIGHT child of PARENT.
+
+(defgeneric splay-step-with-left-parent (node parent))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Generic function SPLAY-STEP-WITH-PARENT.
 ;;;
 ;;; This function should not be called directly by client code.  It is

@@ -13,7 +13,8 @@
 				      (not (null (right parent)))))
 		       do (funcall leave current-node)
 			  (setf current-node parent)
-		       finally (if (null parent)
+		       finally (funcall leave current-node)
+			       (if (null parent)
 				   (return-from iterative-traversal)
 				   (setf current-node (right parent))))
 		 (setf current-node

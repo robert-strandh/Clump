@@ -1,10 +1,10 @@
 (cl:in-package #:clump-binary-tree)
 
-(defgeneric iterative-traversal (tree visit))
+(defgeneric iterative-traversal (tree enter))
 
-(defmethod iterative-traversal ((tree node-with-parent) visit)
+(defmethod iterative-traversal ((tree node-with-parent) enter)
   (let ((current-node tree))
-    (loop do (if (or (not (funcall visit current-node))
+    (loop do (if (or (not (funcall enter current-node))
 		     (and (null (left current-node))
 			  (null (right current-node))))
 		 (loop for parent = (parent current-node)

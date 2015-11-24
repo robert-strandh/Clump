@@ -1,6 +1,6 @@
 (cl:in-package #:clump-binary-tree)
 
-(defgeneric iterative-traversal (tree enter))
+(defgeneric iterative-traversal (tree enter leave))
 
 (defmethod iterative-traversal ((tree node-with-parent) enter leave)
   (let ((current-node tree))

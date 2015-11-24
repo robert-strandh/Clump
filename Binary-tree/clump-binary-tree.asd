@@ -8,6 +8,7 @@
    (:file "binary-tree")
    (:file "conditions")
    (:file "rotation")
+   (:file "recursive-traversal")
    (:file "iterative-traversal")
    (:file "docstrings-english")
    (:file "condition-reporters-english")))

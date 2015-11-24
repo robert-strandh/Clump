@@ -2,7 +2,7 @@
 
 (defgeneric iterative-traversal (tree enter))
 
-(defmethod iterative-traversal ((tree node-with-parent) enter)
+(defmethod iterative-traversal ((tree node-with-parent) enter leave)
   (let ((current-node tree))
     (loop do (if (or (not (funcall enter current-node))
 		     (and (null (left current-node))

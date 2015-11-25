@@ -8,5 +8,5 @@
 	(setf (clump-binary-tree:parent left) tree)
 	(fixup-parents left))
       (unless (null right)
-	(setf (clump-binary-tree:parent left) tree)
+	(setf (clump-binary-tree:parent right) tree)
 	(fixup-parents right)))))

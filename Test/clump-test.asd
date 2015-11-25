@@ -5,4 +5,5 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "node")))
+   (:file "node")
+   (:file "random-tree")))

@@ -1,0 +1,12 @@
+(cl:in-package #:clump-test)
+
+(defun fixup-parents (tree)
+  (unless (null tree)
+    (let ((left (clump-binary-tree:left tree))
+	  (right (clump-binary-tree:right tree)))
+      (unless (null left)
+	(setf (clump-binary-tree:parent left) tree)
+	(fixup-parents left))
+      (unless (null right)
+	(setf (clump-binary-tree:parent left) tree)
+	(fixup-parents right)))))

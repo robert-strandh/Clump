@@ -6,5 +6,6 @@
   :components
   ((:file "packages")
    (:file "node")
+   (:file "print-tree")
    (:file "random-tree")
    (:file "traverse")))

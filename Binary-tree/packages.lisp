@@ -11,6 +11,8 @@
 	   #:rotate-left
 	   #:rotate-left-with-child
 	   #:rotate-right
+	   #:recursive-traversal
+	   #:iterative-traversal
 	   #:invalid-binary-tree
 	   #:right-subtree-must-be-non-nil
 	   #:left-subtree-must-be-non-nil))

@@ -4,6 +4,6 @@
   (loop with r = #'clump-binary-tree:recursive-traversal
 	with i = #'clump-binary-tree:iterative-traversal
 	repeat 10000
-	for tree = (random-tree)
+	for tree = (random-tree 'node)
 	do (fixup-parents tree)
 	   (assert (tree-equal (traverse tree r) (traverse tree i)))))

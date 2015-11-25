@@ -4,4 +4,5 @@
   :depends-on (:clump)
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "node")))

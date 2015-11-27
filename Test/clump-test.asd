@@ -8,6 +8,7 @@
    (:file "node")
    (:file "fixup-parents")
    (:file "print-tree")
+   (:file "make-complete-tree")
    (:file "random-tree")
    (:file "select-random-node")
    (:file "traverse")

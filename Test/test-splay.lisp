@@ -25,10 +25,12 @@
      #'identity)
     result))
 
-(defun test-one-splay (tree)
+(defun test-one-splay-with-node (tree node)
   (let* ((traversal1 (in-order-traversal tree))
-	 (random-node (select-random-node tree))
-	 (ignore (clump-splay-tree:splay random-node))
-	 (traversal2 (in-order-traversal random-node)))
+	 (ignore (clump-splay-tree:splay node))
+	 (traversal2 (in-order-traversal node)))
     (declare (ignore ignore))
     (assert (equal traversal1 traversal2))))
+
+(defun test-one-splay (tree)
+  (test-one-splay-with-node tree (select-random-node tree)))

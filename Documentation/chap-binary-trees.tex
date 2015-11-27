@@ -25,6 +25,12 @@ by this function may be either an instance of (a subclass of) the
 class \texttt{node} or \texttt{nil} if the right child of
 \textit{node} is the empty tree.
 
+\Defgeneric {(setf right)} {new-right node}
+
+Given a tree \texttt{new-right} and a node \texttt{node}, set the
+right child of \texttt{node} to \texttt{new-right}.  The argument
+\texttt{new-right} can be either a node or \texttt{nil}.
+
 \Defclass {simple-node}
 
 This class is a subclass of the class \texttt{node}.  It does not add

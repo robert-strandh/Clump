@@ -9,4 +9,6 @@
 		   :left (aux (1- depth) start)
 		   :right (aux (1- depth)
 			   (+ start (expt 2 (1- depth))))))))
-    (aux depth 0)))
+    (let ((result (aux depth 0)))
+      (fixup-parents result)
+      result)))

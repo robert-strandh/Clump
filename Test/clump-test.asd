@@ -9,5 +9,6 @@
    (:file "fixup-parents")
    (:file "print-tree")
    (:file "random-tree")
+   (:file "select-random-node")
    (:file "traverse")
    (:file "test")))

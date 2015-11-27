@@ -11,4 +11,5 @@
    (:file "random-tree")
    (:file "select-random-node")
    (:file "traverse")
-   (:file "test")))
+   (:file "test")
+   (:file "test-splay")))

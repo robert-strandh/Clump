@@ -21,3 +21,9 @@
 
 (defun test-rotation-of-tree (tree)
   (test-rotation-with-node tree (select-random-node tree)))
+
+(defun test-rotation ()
+  (loop repeat 100000
+	for tree = (random-tree 'node-with-parent)
+	do (fixup-parents tree)
+	   (test-rotation-of-tree tree)))

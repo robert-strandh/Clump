@@ -1,18 +1,21 @@
 (cl:in-package #:clump-test)
 
 (defun test-rotation-with-node (tree node)
-  (let ((traversal (in-order-traversal tree)))
+  (let ((traversal (in-order-traversal tree))
+	(root-p (eq tree node)))
     (cond ((and (null (clump-binary-tree:left node))
 		(null (clump-binary-tree:right node)))
 	   nil)
 	  ((null (clump-binary-tree:left node))
-	   (clump-binary-tree:rotate-left node))
+	   (setf node (clump-binary-tree:rotate-left node)))
 	  ((null (clump-binary-tree:right node))
-	   (clump-binary-tree:rotate-right node))
+	   (setf node (clump-binary-tree:rotate-right node)))
 	  ((< (random 1.0) 0.5)
-	   (clump-binary-tree:rotate-left node))
+	   (setf node (clump-binary-tree:rotate-left node)))
 	  (t
-	   (clump-binary-tree:rotate-right node)))
+	   (setf node (clump-binary-tree:rotate-right node))))
+    (when root-p
+      (setf tree node))
     (check-parents tree)
     (assert (equal traversal (in-order-traversal tree)))))
 

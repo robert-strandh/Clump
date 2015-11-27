@@ -24,3 +24,11 @@
      ;; Function POST.  Do nothing.
      #'identity)
     result))
+
+(defun test-one-splay (tree)
+  (let* ((traversal1 (in-order-traversal tree))
+	 (random-node (select-random-node tree))
+	 (ignore (clump-splay-tree:splay random-node))
+	 (traversal2 (in-order-traversal random-node)))
+    (declare (ignore ignore))
+    (assert (equal traversal1 traversal2))))

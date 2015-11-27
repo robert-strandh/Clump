@@ -136,3 +136,8 @@
   node)
 
 (defgeneric splay (node))
+
+(defmethod splay ((node clump-binary-tree:node-with-parent))
+  (loop until (null (clump-binary-tree:parent node))
+	do (splay-step node))
+  node)

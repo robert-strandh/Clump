@@ -12,6 +12,12 @@ by this function may be either an instance of (a subclass of) the
 class \texttt{node} or \texttt{nil} if the left child of \textit{node}
 is the empty tree.
 
+\Defgeneric {(setf left)} {new-left node}
+
+Given a tree \texttt{new-left} and a node \texttt{node}, set the left
+child of \texttt{node} to \texttt{new-left}.  The argument
+\texttt{new-left} can be either a node or \texttt{nil}.
+
 \Defgeneric {right} {node}
 
 Given a node, return the right child of that node.  The value returned

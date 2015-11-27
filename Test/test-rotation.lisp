@@ -15,3 +15,6 @@
 	   (clump-binary-tree:rotate-right node)))
     (check-parents tree)
     (assert (equal traversal (in-order-traversal tree)))))
+
+(defun test-rotation-of-tree (tree)
+  (test-rotation-with-node tree (select-random-node tree)))

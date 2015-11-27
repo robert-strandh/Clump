@@ -5,5 +5,6 @@
     (let ((left (clump-binary-tree:left tree))
 	  (right (clump-binary-tree:right tree)))
       (unless (null left)
-	(assert (eq (clump-binary-tree:parent left) tree))
+	(assert (eq (clump-binary-tree:parent left) tree)))
+      (unless (null right)
 	(assert (eq (clump-binary-tree:parent right) tree))))))

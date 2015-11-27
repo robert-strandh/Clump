@@ -12,5 +12,6 @@
    (:file "select-random-node")
    (:file "traverse")
    (:file "check-parents")
+   (:file "test-rotation")
    (:file "test")
    (:file "test-splay")))

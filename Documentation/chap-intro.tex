@@ -13,6 +13,12 @@ level of near-concrete representation of the trees, up to the most
 abstract interface where the trees are used as dictionaries,
 sequences, or some other abstract data types.
 
+The main purpose of \sysname{} is to provide trees as \emph{concrete
+  data types}, which means that it exposes the representation of these
+trees, as opposed to hiding this representation beneath an abstract
+data type such as a dictionary.  Client code can then build abstract
+data types from the classes and operations supplied by \sysname{}.
+
 Also, the stratified design makes it possible for client code to use
 the lower levels of abstraction of \sysname{} in order to create
 completely new abstractions, not foreseen by this library.

@@ -24,3 +24,7 @@
 
 (defclass node-with-parent (node)
   ((%parent :initarg :parent :initform nil :accessor parent)))
+
+(defmethod (setf left) :after
+    ((new-left node-with-parent) (node node-with-parent))
+  (setf (parent new-left) node))

@@ -13,4 +13,5 @@
 	(t
 	 (error 'must-be-child
 		:tree node
-		:child old-child))))
+		:child old-child)))
+  new-child)

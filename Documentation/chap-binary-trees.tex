@@ -31,6 +31,10 @@ Given a tree \texttt{new-right} and a node \texttt{node}, set the
 right child of \texttt{node} to \texttt{new-right}.  The argument
 \texttt{new-right} can be either a node or \texttt{nil}.
 
+An \texttt{:after} method is provided with both parameters specialized
+to\\ \texttt{node-with-parent}.  This method calls \texttt{(setf
+  parent)} with \texttt{node} and \texttt{new-right} as arguments.
+
 \Defclass {simple-node}
 
 This class is a subclass of the class \texttt{node}.  It does not add

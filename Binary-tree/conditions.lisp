@@ -11,3 +11,7 @@
 
 (define-condition left-subtree-must-be-non-nil (binary-tree-error)
   ((%tree :initarg :tree :reader tree)))
+
+(define-condition must-be-child (binary-tree-error)
+  ((%tree :initarg :tree :reader tree)
+   (%child :initarg :child :reader child)))

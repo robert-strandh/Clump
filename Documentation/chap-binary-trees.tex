@@ -18,6 +18,10 @@ Given a tree \texttt{new-left} and a node \texttt{node}, set the left
 child of \texttt{node} to \texttt{new-left}.  The argument
 \texttt{new-left} can be either a node or \texttt{nil}.
 
+An \texttt{:after} method is provided with both parameters specialized
+to\\ \texttt{node-with-parent}.  This method calls \texttt{(setf
+  parent)} with \texttt{node} and \texttt{new-left} as arguments.
+
 \Defgeneric {right} {node}
 
 Given a node, return the right child of that node.  The value returned

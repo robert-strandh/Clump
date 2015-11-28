@@ -6,6 +6,7 @@
   :components
   ((:file "packages")
    (:file "node")
+   (:file "print-object")
    (:file "fixup-parents")
    (:file "print-tree")
    (:file "make-complete-tree")

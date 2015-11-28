@@ -7,6 +7,7 @@
   ((:file "packages")
    (:file "binary-tree")
    (:file "conditions")
+   (:file "replace-child")
    (:file "rotation")
    (:file "recursive-traversal")
    (:file "iterative-traversal")

@@ -8,3 +8,6 @@
 
 (defun msn (data left right)
   (make-instance 'simple-node :data data :left left :right right))
+
+(defun mnp (data left right)
+  (make-instance 'node-with-parent :data data :left left :right right))

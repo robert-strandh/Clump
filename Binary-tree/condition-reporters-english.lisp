@@ -29,3 +29,16 @@
            is NIL, but a non-NIL subtree is required:~@
            ~s"
 	  (tree condition)))
+
+(defmethod acclimation:report-condition
+    ((condition must-be-child)
+     stream
+     (language acclimation:english))
+  (format stream
+	  "The node:~@
+           ~s~@
+           must be a child of the node:
+           ~s~@
+           but this is not the case."
+	  (child condition)
+	  (tree condition)))

@@ -1,9 +1,24 @@
 \chapter{Binary trees}
 \label{chap-binary-trees}
 
+\section{Classes}
+
 \Defclass {node}
 
 This class is the base class for all node types in binary trees.
+
+\Defclass {simple-node}
+
+This class is a subclass of the class \texttt{node}.  It does not add
+any slots, and is only meant for client code to be able to distinguish
+between a node with a parent and a node without one.
+
+\Defclass {node-with-parent}
+
+This class is a subclass of the class \texttt{node}.  It adds a slot
+for storing a reference to the parent node in a binary tree.
+
+\section{Basic operations}
 
 \Defgeneric {left} {node}
 
@@ -38,14 +53,3 @@ right child of \texttt{node} to \texttt{new-right}.  The argument
 An \texttt{:after} method is provided with both parameters specialized
 to\\ \texttt{node-with-parent}.  This method calls \texttt{(setf
   parent)} with \texttt{node} and \texttt{new-right} as arguments.
-
-\Defclass {simple-node}
-
-This class is a subclass of the class \texttt{node}.  It does not add
-any slots, and is only meant for client code to be able to distinguish
-between a node with a parent and a node without one.
-
-\Defclass {node-with-parent}
-
-This class is a subclass of the class \texttt{node}.  It adds a slot
-for storing a reference to the parent node in a binary tree.

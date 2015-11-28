@@ -60,3 +60,10 @@ Rotation is a fundamental operation on nodes of a binary tree.  It is
 used in a variety of special cases of binary trees, in particular in
 \emph{AVL trees} \cite{Adelson-Velskii_Landis_1962} and \emph{splay
   trees} \cite{Sleator:1985:SBS:3828.3835}.
+
+Rotation is important because, although it changes the structure of
+the tree, it \emph{preserves the in-order depth-first traversal}.
+Since this order is what defines the contents of the tree when it is
+used either as a \emph{dictionary} or to represent a \emph{sequence},
+rotation can be applied without changing the meaning of what it
+contains.

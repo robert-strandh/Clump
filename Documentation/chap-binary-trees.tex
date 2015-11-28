@@ -54,6 +54,15 @@ An \texttt{:after} method is provided with both parameters specialized
 to\\ \texttt{node-with-parent}.  This method calls \texttt{(setf
   parent)} with \texttt{node} and \texttt{new-right} as arguments.
 
+\section{Traversal}
+
+\sysname{} contains two generic functions for traversing binary trees,
+both with the same signature and the same result.
+
+\Defgeneric {recursive-traversal} {tree pre in post}
+
+\Defgeneric {iterative-traversal} {tree pre in post}
+
 \section{Rotation}
 
 Rotation is a fundamental operation on nodes of a binary tree.  It is

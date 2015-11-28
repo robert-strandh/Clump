@@ -125,9 +125,12 @@
 	  (right child) node)
     child))
 
-(defmethod rotate-right-with-child :after
+(defmethod rotate-right-with-child :around
     ((node node-with-parent) (child node-with-parent))
-  (replace-child (parent node) node child))
+  (let ((sub-tree-parent (parent node)))
+    (call-next-method)
+    (setf (parent child) sub-tree-parent)
+    (replace-child sub-tree-parent node child)))
 
 (defmethod rotate-right ((tree node))
   (rotate-right-with-child tree (left tree)))

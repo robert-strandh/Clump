@@ -28,3 +28,7 @@
 (defmethod (setf left) :after
     ((new-left node-with-parent) (node node-with-parent))
   (setf (parent new-left) node))
+
+(defmethod (setf right) :after
+    ((new-right node-with-parent) (node node-with-parent))
+  (setf (parent new-right) node))

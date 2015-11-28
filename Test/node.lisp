@@ -5,3 +5,6 @@
 
 (defclass node-with-parent (clump-binary-tree:node-with-parent)
   ((%data :initarg :data :reader data)))
+
+(defun msn (data left right)
+  (make-instance 'simple-node :data data :left left :right right))

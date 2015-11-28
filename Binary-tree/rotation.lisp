@@ -63,16 +63,7 @@
 
 (defmethod rotate-left-with-child :after
     ((node node-with-parent) (child node-with-parent))
-  ;; We need to check whether NODE has a parent.  If it does, it means
-  ;; that the tree that we just rotated was the subtree of some node
-  ;; which is then the value of the PARENT slot of NODE.  We must then
-  ;; make sure that NODE is replaced by CHILD as a child of that
-  ;; parent.
-  (let ((parent (parent node)))
-    (unless (null parent)
-      (if (eq node (left parent))
-	  (setf (left parent) child)
-	  (setf (right parent) child)))))
+  (replace-child (parent node) node child))
 
 (defmethod rotate-left ((tree node))
   (rotate-left-with-child tree (right tree)))

@@ -13,11 +13,11 @@
     (node parent grandparent))
 
 (defmethod splay-step-with-left-parent-and-left-grandparent
-    ((node clump-binary-tree:node-with-parent)
-     (parent clump-binary-tree:node-with-parent)
-     (grandparent clump-binary-tree:node-with-parent))
-  (clump-binary-tree:rotate-left grandparent)
-  (clump-binary-tree:rotate-left parent)
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent node-with-parent))
+  (rotate-left grandparent)
+  (rotate-left parent)
   node)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -33,11 +33,11 @@
     (node parent grandparent))
 
 (defmethod splay-step-with-left-parent-and-right-grandparent
-    ((node clump-binary-tree:node-with-parent)
-     (parent clump-binary-tree:node-with-parent)
-     (grandparent clump-binary-tree:node-with-parent))
-  (clump-binary-tree:rotate-left parent)
-  (clump-binary-tree:rotate-right grandparent)
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent node-with-parent))
+  (rotate-left parent)
+  (rotate-right grandparent)
   node)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,11 +53,11 @@
     (node parent grandparent))
 
 (defmethod splay-step-with-right-parent-and-right-grandparent
-    ((node clump-binary-tree:node-with-parent)
-     (parent clump-binary-tree:node-with-parent)
-     (grandparent clump-binary-tree:node-with-parent))
-  (clump-binary-tree:rotate-right grandparent)
-  (clump-binary-tree:rotate-right parent)
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent node-with-parent))
+  (rotate-right grandparent)
+  (rotate-right parent)
   node)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -73,11 +73,11 @@
     (node parent grandparent))
 
 (defmethod splay-step-with-right-parent-and-left-grandparent
-    ((node clump-binary-tree:node-with-parent)
-     (parent clump-binary-tree:node-with-parent)
-     (grandparent clump-binary-tree:node-with-parent))
-  (clump-binary-tree:rotate-right parent)
-  (clump-binary-tree:rotate-left grandparent)
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent node-with-parent))
+  (rotate-right parent)
+  (rotate-left grandparent)
   node)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -114,9 +114,9 @@
 
 (defgeneric splay-step-with-parent (node parent))
 
-(defmethod splay-step-with-parent ((node clump-binary-tree:node-with-parent)
-				   (parent clump-binary-tree:node-with-parent))
-  (if (eq node (clump-binary-tree:left parent))
+(defmethod splay-step-with-parent ((node node-with-parent)
+				   (parent node-with-parent))
+  (if (eq node (left parent))
       (splay-step-with-right-parent node parent)
       (splay-step-with-left-parent node parent)))
 
@@ -129,15 +129,15 @@
 
 (defgeneric splay-step (node))
 
-(defmethod splay-step ((node clump-binary-tree:node-with-parent))
-  (let ((parent (clump-binary-tree:parent node)))
+(defmethod splay-step ((node node-with-parent))
+  (let ((parent (parent node)))
     (unless (null parent)
       (splay-step-with-parent node parent)))
   node)
 
 (defgeneric splay (node))
 
-(defmethod splay ((node clump-binary-tree:node-with-parent))
-  (loop until (null (clump-binary-tree:parent node))
+(defmethod splay ((node node-with-parent))
+  (loop until (null (parent node))
 	do (splay-step node))
   node)

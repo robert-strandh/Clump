@@ -82,6 +82,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT-AND-GRANDPARENT.
+
+(defgeneric splay-step-with-left-parent-and-grandparent
+  (node parent grandparent))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT.
 ;;;
 ;;; This function is called to apply a splay step to a NODE and its

@@ -104,6 +104,16 @@
 (defgeneric splay-step-with-right-parent-and-grandparent
   (node parent grandparent))
 
+(defmethod splay-step-with-right-parent-and-grandparent
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent node-with-parent))
+  (if (eq parent (left grandparent))
+      (splay-step-with-right-parent-and-left-grandparent
+       node parent grandparent)
+      (splay-step-with-right-parent-and-right-grandparent
+       node parent grandparent)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP-WITH-LEFT-PARENT.

@@ -1,4 +1,4 @@
-(cl:in-package #:clump-splay-tree)
+(cl:in-package #:clump-binary-tree)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;

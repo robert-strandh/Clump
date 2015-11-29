@@ -27,7 +27,7 @@
 
 (defun test-one-splay-with-node (tree node)
   (let* ((traversal1 (in-order-traversal tree))
-	 (ignore (clump-splay-tree:splay node))
+	 (ignore (clump-binary-tree:splay node))
 	 (traversal2 (in-order-traversal node)))
     (declare (ignore ignore))
     (assert (equal traversal1 traversal2))))

@@ -112,6 +112,10 @@
 
 (defgeneric splay-step-with-right-parent (node parent))
 
+(defmethod splay-step-with-right-parent ((node node-with-parent)
+					 (parent node-with-parent))
+  (splay-step-with-right-parent-and-grandparent node parent (parent parent)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP-WITH-PARENT.

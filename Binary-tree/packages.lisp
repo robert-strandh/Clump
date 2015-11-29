@@ -12,6 +12,7 @@
 	   #:rotate-left-with-child
 	   #:rotate-right
 	   #:rotate-right-with-child
+	   #:replace-child
 	   #:recursive-traversal
 	   #:iterative-traversal
 	   #:invalid-binary-tree

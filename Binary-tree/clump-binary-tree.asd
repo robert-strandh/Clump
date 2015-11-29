@@ -11,5 +11,6 @@
    (:file "rotation")
    (:file "recursive-traversal")
    (:file "iterative-traversal")
+   (:file "splay")
    (:file "docstrings-english")
    (:file "condition-reporters-english")))

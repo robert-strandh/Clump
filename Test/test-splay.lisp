@@ -36,7 +36,7 @@
   (test-one-splay-with-node tree (select-random-node tree)))
 
 (defun test-splay ()
-  (loop repeat 1000
+  (loop repeat 100000
 	for tree = (random-tree 'node-with-parent)
 	do (fixup-parents tree)
 	   (test-one-splay tree)))

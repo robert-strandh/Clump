@@ -97,6 +97,12 @@
       (splay-step-with-left-parent-and-right-grandparent
        node parent grandparent)))
 
+(defmethod splay-step-with-left-parent-and-grandparent
+    ((node node-with-parent)
+     (parent node-with-parent)
+     (grandparent null))
+  (rotate-left node))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP-WITH-RIGH-PARENT-AND-GRANDPARENT.

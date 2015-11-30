@@ -126,3 +126,21 @@ strict subclasses of \texttt{node-with-parents}.
 
 This method calls \texttt{splay-step-with-parent}, passing it
 \texttt{node} and the parent of \texttt{node} as arguments.
+
+\Defgeneric {splay-step-with-parent} {node parent}
+
+\Defmethod {splay-step-with-parent}
+{(node \texttt{node-with-parent}) (parent \texttt{null})}
+
+This method does nothing and returns \texttt{node}.
+
+\Defmethod {splay-step-with-parent}
+{(node \texttt{node-with-parent}) (parent \texttt{node-with-parent})}
+
+This method checks whether \texttt{node} is the left or the right child
+of \texttt{parent}.  If \texttt{node} is the left child of
+\texttt{parent}, it calls \texttt{splay-step-with-right-parent},
+passing it \texttt{node} and \texttt{parent} as arguments.  If
+\texttt{node} is the right child of \texttt{parent}, it calls
+\texttt{splay-step-with-left-parent}, passing it \texttt{node} and
+\texttt{parent} as arguments.

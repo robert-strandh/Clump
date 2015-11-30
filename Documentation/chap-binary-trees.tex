@@ -115,3 +115,6 @@ repeatedly invokes the generic function \texttt{splay-step} passing
 \texttt{node} as an argument until \texttt{node} is the root of the
 entire tree, which is determined by the fact that its parent is
 \texttt{nil}.
+
+Client code may define methods on \texttt{splay}, specialized to
+strict subclasses of \texttt{node-with-parents}.

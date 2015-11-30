@@ -92,9 +92,9 @@
      (parent node-with-parent)
      (grandparent node-with-parent))
   (if (eq parent (left grandparent))
-      (splay-step-with-left-parent-and-left-grandparent
-       node parent grandparent)
       (splay-step-with-left-parent-and-right-grandparent
+       node parent grandparent)
+      (splay-step-with-left-parent-and-left-grandparent
        node parent grandparent)))
 
 (defmethod splay-step-with-left-parent-and-grandparent
@@ -115,9 +115,9 @@
      (parent node-with-parent)
      (grandparent node-with-parent))
   (if (eq parent (left grandparent))
-      (splay-step-with-right-parent-and-left-grandparent
-       node parent grandparent)
       (splay-step-with-right-parent-and-right-grandparent
+       node parent grandparent)
+      (splay-step-with-right-parent-and-left-grandparent
        node parent grandparent)))
 
 (defmethod splay-step-with-right-parent-and-grandparent

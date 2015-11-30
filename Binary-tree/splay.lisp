@@ -101,7 +101,7 @@
     ((node node-with-parent)
      (parent node-with-parent)
      (grandparent null))
-  (rotate-left node))
+  (rotate-left parent))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -124,7 +124,7 @@
     ((node node-with-parent)
      (parent node-with-parent)
      (grandparent null))
-  (rotate-right node))
+  (rotate-right parent))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;

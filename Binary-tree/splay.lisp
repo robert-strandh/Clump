@@ -188,9 +188,7 @@
 (defgeneric splay-step (node))
 
 (defmethod splay-step ((node node-with-parent))
-  (let ((parent (parent node)))
-    (unless (null parent)
-      (splay-step-with-parent node parent)))
+  (splay-step-with-parent node (parent node))
   node)
 
 (defgeneric splay (node))

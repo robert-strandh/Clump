@@ -134,7 +134,7 @@ This method calls \texttt{splay-step-with-parent}, passing it
 
 This method does nothing and returns \texttt{node}.
 
-\Defmethod {splay-step-with-parent}
+\Defmethod {splay-step-with-parent}\\
 {(node \texttt{node-with-parent}) (parent \texttt{node-with-parent})}
 
 This method checks whether \texttt{node} is the left or the right child
@@ -143,4 +143,13 @@ of \texttt{parent}.  If \texttt{node} is the left child of
 passing it \texttt{node} and \texttt{parent} as arguments.  If
 \texttt{node} is the right child of \texttt{parent}, it calls
 \texttt{splay-step-with-left-parent}, passing it \texttt{node} and
+\texttt{parent} as arguments.
+
+\Defgeneric {splay-step-with-right-parent} {node parent}
+
+\Defmethod {splay-step-with-right-parent}\\
+{(node \texttt{node-with-parent}) (parent \texttt{node-with-parent})}
+
+This method calls \texttt{splay-step-with-parent-and-grandparent},
+passing it \texttt{node}, \texttt{parent} and the parent of
 \texttt{parent} as arguments.

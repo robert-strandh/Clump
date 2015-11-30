@@ -174,6 +174,10 @@
       (splay-step-with-right-parent node parent)
       (splay-step-with-left-parent node parent)))
 
+(defmethod splay-step-with-parent ((node node-with-parent)
+				   (parent null))
+  node)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function SPLAY-STEP.

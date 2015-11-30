@@ -110,11 +110,12 @@ This function takes an instance of (a subclass of)
 the entire tree.  The function \texttt{splay} returns its argument
 \texttt{node}.
 
-The method on \texttt{splay} specialized to \texttt{node-with-parent}
-repeatedly invokes the generic function \texttt{splay-step} passing
-\texttt{node} as an argument until \texttt{node} is the root of the
-entire tree, which is determined by the fact that its parent is
-\texttt{nil}.
+\Defmethod {splay} {(node \texttt{node-with-parent})}
+
+This method repeatedly invokes the generic function
+\texttt{splay-step} passing \texttt{node} as an argument until
+\texttt{node} is the root of the entire tree, which is determined by
+the fact that its parent is \texttt{nil}.
 
 Client code may define methods on \texttt{splay}, specialized to
 strict subclasses of \texttt{node-with-parents}.

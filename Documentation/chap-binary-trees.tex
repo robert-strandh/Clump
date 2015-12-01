@@ -114,7 +114,11 @@ be splayed, its parent, and its grandparent.
 There are three fundamentally different types of splay-step
 operations, traditionally called \emph{zig}, \emph{zig-zig}, and
 \emph{zig-zag}, respectively.  Furthermore, each type of operation has
-two constellations that are mirror images of each other.
+two constellations that are mirror images of each other, for a total
+of six types of splay steps.
+
+\refFig{fig-splay-zig-1} illustrates the first case of a \emph{zig}
+splay-step operation.  The node to be splayed is labeled \textsf{a}.
 
 \begin{figure}
 \begin{center}
@@ -123,6 +127,13 @@ two constellations that are mirror images of each other.
 \caption{\label{fig-splay-zig-1}
 Splaying with a zig step, case 1.}
 \end{figure}
+
+As \refFig{fig-splay-zig-1} shows, this splay-step operation applies
+when the parent of the node to be splayed (labeled \textsf{b} in
+\refFig{fig-splay-zig-1}) is the root of the entire tree, and the node
+to be splayed is the \emph{left} child of its parent.  For this
+constellation, the splay step for the node labeled \textsf{a} is the
+same as a \emph{right rotation} of the node labeled \textsf{b}.
 
 \begin{figure}
 \begin{center}

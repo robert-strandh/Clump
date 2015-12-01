@@ -103,6 +103,19 @@ Splaying is fundamental operation of \emph{splay trees}
 \cite{Sleator:1985:SBS:3828.3835}.  It is defined in terms of
 rotations \seesec{sec-rotation}.
 
+The splay operation can be applied to any \emph{node} in the tree.
+When the splay operation terminates, the node to which the splay
+operation was applied will be at the root of the tree.  The node is
+migrated to the root through a sequence of well-defined \emph{splay
+  steps}.  Each splay step consists of one or two rotations.  Which
+rotations to apply depends on the constellations between the node to
+be splayed, its parent, and its grandparent.
+
+There are three fundamentally different types of splay-step
+operations, traditionally called \emph{zig}, \emph{zig-zig}, and
+\emph{zig-zag}, respectively.  Furthermore, each type of operation has
+two constellations that are mirror images of each other.
+
 \begin{figure}
 \begin{center}
 \inputfig{fig-splay-zig-1.pdf_t}

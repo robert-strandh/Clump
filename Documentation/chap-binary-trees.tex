@@ -81,6 +81,18 @@ both with the same signature and the same result.
 
 \Defgeneric {iterative-traversal} {tree pre in post}
 
+Both these functions implement a depth-first left-to-right traversal
+of \texttt{tree}, which may be an instance of (a subclass of)
+\texttt{node}, or \texttt{nil}.
+
+Each of the parameters \texttt{pre}, \texttt{in}, and \texttt{post},
+is a designator of a function of one argument, a node.  Each function
+is called with the root $N$ (a node) of some subtree $T$.  The
+function \texttt{pre} is called when $T$ is about to be visited.  The
+function \texttt{in} is called after the \emph{left subtree} of $T$
+has already been visited.  The function \texttt{post} is called after
+the \emph{right subtree} of $T$ has already been visited.
+
 \section{Rotation}
 \label{sec-rotation}
 

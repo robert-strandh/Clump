@@ -135,6 +135,10 @@ to be splayed is the \emph{left} child of its parent.  For this
 constellation, the splay step for the node labeled \textsf{a} is the
 same as a \emph{right rotation} of the node labeled \textsf{b}.
 
+\refFig{fig-splay-zig-2} illustrates the second case of a \emph{zig}
+splay-step operation.  Again, the node to be splayed is labeled
+\textsf{a}.
+
 \begin{figure}
 \begin{center}
 \inputfig{fig-splay-zig-2.pdf_t}
@@ -142,6 +146,13 @@ same as a \emph{right rotation} of the node labeled \textsf{b}.
 \caption{\label{fig-splay-zig-2}
 Splaying with a zig step, case 2.}
 \end{figure}
+
+As \refFig{fig-splay-zig-2} shows, this splay-step operation applies
+when the parent of the node to be splayed (labeled \textsf{b} in
+\refFig{fig-splay-zig-2}) is the root of the entire tree, and the node
+to be splayed is the \emph{right} child of its parent.  For this
+constellation, the splay step for the node labeled \textsf{a} is the
+same as a \emph{left rotation} of the node labeled \textsf{b}.
 
 \begin{figure}
 \begin{center}

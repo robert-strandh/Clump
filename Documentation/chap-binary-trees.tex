@@ -101,6 +101,16 @@ that is requires stack space proportional to the depth of the tree.
 If the tree is large and skinny, the available stack space will very
 likely be exhausted in most \commonlisp{} implementations.
 
+The function \texttt{iterative-traversal} uses \emph{iteration} for
+the traversal.  When the tree consists of instance of (subclasses of)
+\texttt{node-with-parent}, the \texttt{parent} slot is used to back up
+after a subtree has been completely traversed.  Therefore only a
+small, constant amount of additional space is required.  When the tree
+consists of instance of (subclasses of) \texttt{simple-node}, this
+function allocates a \emph{list} to hold parent nodes in progress of
+being traversed.  For that reason, this function uses additional space
+proportional to the depth of the tree.
+
 \section{Rotation}
 \label{sec-rotation}
 

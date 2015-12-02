@@ -220,6 +220,10 @@ rotation applies to the parent of the node to be splayed, and the
 second rotation applies to the grandparent (labeled \textsf{c} in
 \refFig{fig-splay-zig-zag-1}) of the node to be splayed.
 
+\refFig{fig-splay-zig-zag-2} illustrates the second case of a
+\emph{zig-zag} splay-step operation.  Again, the node to be splayed is
+labeled \textsf{a}.
+
 \begin{figure}
 \begin{center}
 \inputfig{fig-splay-zig-zag-2.pdf_t}
@@ -227,6 +231,16 @@ second rotation applies to the grandparent (labeled \textsf{c} in
 \caption{\label{fig-splay-zig-zag-2}
 Splaying with a zig-zag step, case 2.}
 \end{figure}
+
+As \refFig{fig-splay-zig-zag-2} shows, this splay-step operation
+applies when the node to be splayed is the \emph{left} child of its
+parent (labeled \textsf{b} in \refFig{fig-splay-zig-zag-2}) and the
+parent is the \emph{right} child of its parent.  For this
+constellation, the splay step for the node labeled \textsf{a} consists
+of one right rotation followed by one left rotation.  The first
+rotation applies to the parent of the node to be splayed, and the
+second rotation applies to the grandparent (labeled \textsf{c} in
+\refFig{fig-splay-zig-zag-2}) of the node to be splayed.
 
 \Defgeneric {splay} {node}
 

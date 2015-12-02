@@ -312,6 +312,10 @@ rotation applies to the parent of the node to be splayed, and the
 second rotation applies to the grandparent (labeled \textsf{c} in
 \refFig{fig-splay-zig-zag-2}) of the node to be splayed.
 
+The splay step of the constellation in \refFig{fig-splay-zig-zag-2} is
+handled by the generic function
+\texttt{splay-step-with-right-parent-and-left-grandparent}.
+
 \Defgeneric {splay} {node}
 
 This function takes an instance of (a subclass of)

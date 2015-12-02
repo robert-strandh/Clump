@@ -54,6 +54,15 @@ An \texttt{:after} method is provided with both parameters specialized
 to\\ \texttt{node-with-parent}.  This method calls \texttt{(setf
   parent)} with \texttt{node} and \texttt{new-right} as arguments.
 
+\Defgeneric {parent} {node}
+
+Given a node, return the parent of that node.  If \texttt{node} is not
+an instance of (a subclass of) \texttt{node-with-parent}, then an
+error is signaled.  Otherwise, the value returned by this function may
+be either an instance of (a subclass of) the class
+\texttt{node-with-parent}, or \texttt{nil} indicating that
+\texttt{node} is the root of a tree.
+
 \section{Traversal}
 
 \sysname{} contains two generic functions for traversing binary trees,

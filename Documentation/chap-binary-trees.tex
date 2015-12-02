@@ -379,6 +379,10 @@ passing it \texttt{node}, \texttt{parent} and the parent of
 \Defgeneric {splay-step-with-right-parent-and-grandparent}\\
 {node parent grandparent}
 
+This function handles splay steps where \texttt{node} is the left
+child of \texttt{parent}, and \texttt{grandparent} is either a node or
+\texttt{nil}.
+
 \Defgeneric {splay-step-with-left-parent-and-grandparent}\\
 {node parent grandparent}
 

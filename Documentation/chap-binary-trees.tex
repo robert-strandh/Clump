@@ -183,6 +183,11 @@ to be splayed is the \emph{left} child of its parent.  For this
 constellation, the splay step for the node labeled \textsf{a} is the
 same as a \emph{right rotation} of the node labeled \textsf{b}.
 
+The splay step of the constellation in \refFig{fig-splay-zig-1} is
+handled by the generic function
+\texttt{splay-step-with-right-parent-and-grandparent}, specifically by
+the method specialized to a grandparent of class \texttt{null}.
+
 \refFig{fig-splay-zig-2} illustrates the second case of a \emph{zig}
 splay-step operation.  Again, the node to be splayed is labeled
 \textsf{a}.

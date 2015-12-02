@@ -383,6 +383,17 @@ This function handles splay steps where \texttt{node} is the left
 child of \texttt{parent}, and \texttt{grandparent} is either a node or
 \texttt{nil}.
 
+\Defmethod {splay-step-with-right-parent-and-grandparent}\\
+{(node \texttt{node-with-parent})\\
+ (parent \texttt{node-with-parent})\\
+ (grandparent \texttt{node-with-parent})}
+
+This method calls
+\texttt{splay-step-with-right-parent-and-right-grandparent} or
+\texttt{splay-step-with-right-parent-and-left-grandparent} according
+to whether \texttt{parent} is the left or the right child of
+\texttt{grandparent}.
+
 \Defgeneric {splay-step-with-left-parent-and-grandparent}\\
 {node parent grandparent}
 

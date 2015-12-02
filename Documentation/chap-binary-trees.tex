@@ -420,6 +420,14 @@ This method calls
 to whether \texttt{parent} is the left or the right child of
 \texttt{grandparent}.
 
+\Defmethod {splay-step-with-left-parent-and-grandparent}\\
+{(node \texttt{node-with-parent})\\
+ (parent \texttt{node-with-parent})\\
+ (grandparent \texttt{null})}
+
+This method handles a splay step when the constellation of the node is
+the one illustrated by \refFig{fig-splay-zig-2}.
+
 \Defgeneric {splay-step-with-right-parent-and-right-grandparent}\\
 {node parent grandparent}
 

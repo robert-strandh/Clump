@@ -93,6 +93,14 @@ function \texttt{in} is called after the \emph{left subtree} of $T$
 has already been visited.  The function \texttt{post} is called after
 the \emph{right subtree} of $T$ has already been visited.
 
+The two functions differ in how the traversal is accomplished.
+
+The function \texttt{recursive-traversal} uses \emph{recursion} for
+the traversal.  This technique is very fast, but the disadvantage is
+that is requires stack space proportional to the depth of the tree.
+If the tree is large and skinny, the available stack space will very
+likely be exhausted in most \commonlisp{} implementations.
+
 \section{Rotation}
 \label{sec-rotation}
 

@@ -63,6 +63,15 @@ be either an instance of (a subclass of) the class
 \texttt{node-with-parent}, or \texttt{nil} indicating that
 \texttt{node} is the root of a tree.
 
+\Defgeneric {(setf parent)} {new-parent node}
+
+Given a tree \texttt{new-parent} and a node \texttt{node}, set the
+parent of \texttt{node} to \texttt{new-parent}.  If \texttt{node} is
+not an instance of (a subclass of) \texttt{node-with-parent}, then an
+error is signaled.  The argument \texttt{new-parent} can be either an
+instance of (a subclass of) \texttt{node-with-parent}, or \texttt{nil}
+indicating that \texttt{node} is the root of a tree.
+
 \section{Traversal}
 
 \sysname{} contains two generic functions for traversing binary trees,

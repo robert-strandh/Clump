@@ -260,6 +260,10 @@ of two left rotations.  The first rotation applies to the grandparent
 splayed, and the second rotation applies to the parent of the node to
 be splayed.
 
+The splay step of the constellation in \refFig{fig-splay-zig-zig-2} is
+handled by the generic function
+\texttt{splay-step-with-left-parent-and-left-grandparent}.
+
 \refFig{fig-splay-zig-zag-1} illustrates the first case of a
 \emph{zig-zag} splay-step operation.  Again, the node to be splayed is
 labeled \textsf{a}.

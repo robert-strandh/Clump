@@ -64,9 +64,16 @@
 (defmethod rotate-left-with-child :around
     ((node node-with-parent) (child node-with-parent))
   (let ((sub-tree-parent (parent node)))
-    (call-next-method)
-    (setf (parent child) sub-tree-parent)
-    (replace-child sub-tree-parent node child)))
+    (cond ((null sub-tree-parent)
+	   (call-next-method))
+	  ((eq node (left sub-tree-parent))
+	   (setf (left sub-tree-parent) nil)
+	   (call-next-method)
+	   (setf (left sub-tree-parent) child))
+	  (t
+	   (setf (right sub-tree-parent) nil)
+	   (call-next-method)
+	   (setf (right sub-tree-parent) child)))))
 
 (defmethod rotate-left ((tree node))
   (rotate-left-with-child tree (right tree)))
@@ -131,9 +138,16 @@
 (defmethod rotate-right-with-child :around
     ((node node-with-parent) (child node-with-parent))
   (let ((sub-tree-parent (parent node)))
-    (call-next-method)
-    (setf (parent child) sub-tree-parent)
-    (replace-child sub-tree-parent node child)))
+    (cond ((null sub-tree-parent)
+	   (call-next-method))
+	  ((eq node (left sub-tree-parent))
+	   (setf (left sub-tree-parent) nil)
+	   (call-next-method)
+	   (setf (left sub-tree-parent) child))
+	  (t
+	   (setf (right sub-tree-parent) nil)
+	   (call-next-method)
+	   (setf (right sub-tree-parent) child)))))
 
 (defmethod rotate-right ((tree node))
   (rotate-right-with-child tree (left tree)))

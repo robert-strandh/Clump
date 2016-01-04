@@ -33,3 +33,10 @@
 ;;; Remove CHILD as the right child of PARENT.
 (defgeneric unlink-right (parent child))
 
+(defmethod unlink-right ((parent node) (child node))
+  (setf (right parent) nil))
+
+(defmethod unlink-right ((parent node-with-parent) (child node-with-parent))
+  (call-next-method)
+  (setf (parent child) nil))
+

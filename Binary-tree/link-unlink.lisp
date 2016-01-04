@@ -3,6 +3,13 @@
 ;;; Make CHILD the left child of NODE.
 (defgeneric link-left (parent child))
 
+(defmethod link-left ((parent node) (child node))
+  (setf (left parent) child))
+
+(defmethod link-left ((parent node-with-parent) (child node-with-parent))
+  (call-next-method)
+  (setf (parent child) parent))
+
 ;;; Make CHILD the right child of PARENT.
 (defgeneric link-right (parent child))
 

@@ -6,6 +6,7 @@
   :components
   ((:file "packages")
    (:file "binary-tree")
+   (:file "link-unlink")
    (:file "conditions")
    (:file "replace-child")
    (:file "rotation")

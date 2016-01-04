@@ -23,6 +23,13 @@
 ;;; Remove CHILD as the left child of PARENT.
 (defgeneric unlink-left (parent child))
 
+(defmethod unlink-left ((parent node) (child node))
+  (setf (left parent) nil))
+
+(defmethod unlink-left ((parent node-with-parent) (child node-with-parent))
+  (call-next-method)
+  (setf (parent child) nil))
+
 ;;; Remove CHILD as the right child of PARENT.
 (defgeneric unlink-right (parent child))
 

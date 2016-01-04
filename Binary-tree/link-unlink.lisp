@@ -13,6 +13,13 @@
 ;;; Make CHILD the right child of PARENT.
 (defgeneric link-right (parent child))
 
+(defmethod link-right ((parent node) (child node))
+  (setf (right parent) child))
+
+(defmethod link-right ((parent node-with-parent) (child node-with-parent))
+  (call-next-method)
+  (setf (parent child) parent))
+
 ;;; Remove CHILD as the left child of PARENT.
 (defgeneric unlink-left (parent child))
 

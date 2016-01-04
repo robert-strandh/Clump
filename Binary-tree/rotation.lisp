@@ -57,8 +57,10 @@
 ;;; The node CHILD is returned.
 (defmethod rotate-left-with-child ((node node) (child node))
   (let ((grand-child (left child)))
-    (setf (right node) grand-child
-	  (left child) node)
+    (unlink-right node child)
+    (unlink-left child grand-child)
+    (link-right node grand-child)
+    (link-left child node)
     child))
 
 (defmethod rotate-left-with-child :around
@@ -67,13 +69,14 @@
     (cond ((null sub-tree-parent)
 	   (call-next-method))
 	  ((eq node (left sub-tree-parent))
-	   (setf (left sub-tree-parent) nil)
+	   (unlink-left sub-tree-parent node)
 	   (call-next-method)
-	   (setf (left sub-tree-parent) child))
+	   (link-left sub-tree-parent child))
 	  (t
-	   (setf (right sub-tree-parent) nil)
+	   (unlink-right sub-tree-parent node)
 	   (call-next-method)
-	   (setf (right sub-tree-parent) child)))))
+	   (link-right sub-tree-parent child))))
+  child)
 
 (defmethod rotate-left ((tree node))
   (rotate-left-with-child tree (right tree)))
@@ -131,8 +134,10 @@
 ;;; The node L is returned
 (defmethod rotate-right-with-child ((node node) (child node))
   (let ((grand-child (right child)))
-    (setf (left node) grand-child
-	  (right child) node)
+    (unlink-left node child)
+    (unlink-right child grand-child)
+    (link-left node grand-child)
+    (link-right child node)
     child))
 
 (defmethod rotate-right-with-child :around
@@ -141,13 +146,14 @@
     (cond ((null sub-tree-parent)
 	   (call-next-method))
 	  ((eq node (left sub-tree-parent))
-	   (setf (left sub-tree-parent) nil)
+	   (unlink-left sub-tree-parent node)
 	   (call-next-method)
-	   (setf (left sub-tree-parent) child))
+	   (link-left sub-tree-parent child))
 	  (t
-	   (setf (right sub-tree-parent) nil)
+	   (unlink-right sub-tree-parent node)
 	   (call-next-method)
-	   (setf (right sub-tree-parent) child)))))
+	   (link-right sub-tree-parent child))))
+  child)
 
 (defmethod rotate-right ((tree node))
   (rotate-right-with-child tree (left tree)))

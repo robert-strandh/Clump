@@ -13,3 +13,7 @@
   ((%left :initarg :left :accessor left)
    (%right :initarg :right :accessor right)))
 
+(defclass 3-node (node)
+  ((%left :initarg :left :accessor left)
+   (%middle :initarg :middle :accessor middle)
+   (%right :initarg :right :accessor right)))

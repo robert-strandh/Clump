@@ -85,3 +85,12 @@
 	  :right new-child-2)))
 
 (defgeneric insert-before (object leaf))
+
+(defmethod insert-before (object (leaf leaf))
+  (let ((tree (tree leaf)))
+    (split (parent leaf)
+	   leaf
+	   (make-instance (leaf-class tree)
+	     :tree tree
+	     :contents object)
+	   leaf)))

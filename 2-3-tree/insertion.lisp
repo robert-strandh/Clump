@@ -49,3 +49,31 @@
 		 :left (left node)
 		 :middle new-child-1
 		 :right new-child-2))))
+
+(defmethod split ((node 3-node) old-child new-child-1 new-child-2)
+  (if (eq old-child (left node))
+      (split (parent node)
+	     node
+	     (make-instance (2-node-class (tree node))
+	       :left new-child-1
+	       :right new-child-2)
+	     (make-instance (2-node-class (tree node))
+	       :left (middle node)
+	       :right (right node)))
+      (if (eq old-child (middle node))
+	  (split (parent node)
+		 node
+		 (make-instance (2-node-class (tree node))
+		   :left (left node)
+		   :right new-child-1)
+		 (make-instance (2-node-class (tree node))
+		   :left new-child-1
+		   :right (right node)))
+	  (split (parent node)
+		 node
+		 (make-instance (2-node-class (tree node))
+		   :left (left node)
+		   :right (middle node))
+		 (make-instance (2-node-class (tree node))
+		   :left new-child-1
+		   :right new-child-2)))))

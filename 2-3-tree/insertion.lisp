@@ -13,3 +13,7 @@
 	  :contents object
 	  :parent tree
 	  :tree tree)))
+
+;;; In NODE, split OLD-CHILD into two children, NEW-CHILD-1 and
+;;; NEW-CHILD-2.
+(defgeneric split (node old-child new-child-1 new-child-2))

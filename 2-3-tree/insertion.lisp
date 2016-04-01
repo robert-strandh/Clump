@@ -94,3 +94,5 @@
 	     :tree tree
 	     :contents object)
 	   leaf)))
+
+(defgeneric insert-after (object leaf))

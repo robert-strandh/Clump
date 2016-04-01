@@ -10,4 +10,7 @@
 	   #:3-node-class
 	   #:leaf
 	   #:2-node
-	   #:3-node))
+	   #:3-node
+	   #:insert
+	   #:insert-before
+	   #:insert-after))

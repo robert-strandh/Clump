@@ -96,3 +96,12 @@
 	   leaf)))
 
 (defgeneric insert-after (object leaf))
+
+(defmethod insert-after (object (leaf leaf))
+  (let ((tree (tree leaf)))
+    (split (parent leaf)
+	   leaf
+	   leaf
+	   (make-instance (leaf-class tree)
+	     :tree tree
+	     :contents object))))

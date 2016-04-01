@@ -8,3 +8,8 @@
 
 (defclass leaf (node)
   ((%contents :initarg :contents :accessor contents)))
+
+(defclass 2-node (node)
+  ((%left :initarg :left :accessor left)
+   (%right :initarg :right :accessor right)))
+

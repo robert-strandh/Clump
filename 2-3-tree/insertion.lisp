@@ -36,3 +36,12 @@
 (defmethod replace ((tree tree) old-child new-child)
   (declare (ignore old-child))
   (setf (contents tree) new-child))
+
+(defmethod split ((node 2-node) old-child new-child-1 new-child-2)
+  (if (eq old-child (left node))
+      (replace (parent node)
+	       node
+	       (make-instance (3-node-class (tree node))
+		 :left new-child-1
+		 :middle new-child-2
+		 :right (right node)))))

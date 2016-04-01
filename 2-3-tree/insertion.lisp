@@ -32,3 +32,7 @@
       (if (eq old-child (middle node))
 	  (setf (middle node) new-child)
 	  (setf (right node) new-child))))
+
+(defmethod replace ((tree tree) old-child new-child)
+  (declare (ignore old-child))
+  (setf (contents tree) new-child))

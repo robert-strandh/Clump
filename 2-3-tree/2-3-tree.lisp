@@ -7,7 +7,8 @@
    (%3-node-class :initarg :3-node-class :reader 3-node-class)))
 
 (defclass node ()
-  ((%parent :initarg :parent :accessor parent)))
+  ((%parent :initarg :parent :accessor parent)
+   (%tree :initarg :tree :reader tree)))
 
 (defclass leaf (node)
   ((%contents :initarg :contents :accessor contents)))

@@ -83,3 +83,5 @@
 	(make-instance (2-node-class tree)
 	  :left new-child-1
 	  :right new-child-2)))
+
+(defgeneric insert-before (object leaf))

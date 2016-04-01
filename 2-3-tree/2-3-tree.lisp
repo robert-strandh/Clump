@@ -5,3 +5,6 @@
 
 (defclass node ()
   ((%parent :initarg :parent :accessor parent)))
+
+(defclass leaf (node)
+  ((%contents :initform nil :accessor contents)))

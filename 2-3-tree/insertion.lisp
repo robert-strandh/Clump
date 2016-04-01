@@ -6,3 +6,10 @@
 (defmethod insert :before (object (tree tree))
   (unless (null (contents tree))
     (error "Do this error message better.")))
+
+(defmethod insert (object (tree tree))
+  (setf (contents tree)
+	(make-instance (leaf-class tree)
+	  :contents object
+	  :parent tree
+	  :tree tree)))

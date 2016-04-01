@@ -5,4 +5,5 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "2-3-tree")))
+   (:file "2-3-tree")
+   (:file "insertion")))

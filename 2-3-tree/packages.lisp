@@ -3,6 +3,7 @@
 (defpackage #:clump-2-3-tree
   (:use #:common-lisp)
   (:export #:tree
+	   #:contents
 	   #:leaf
 	   #:2-node
 	   #:3-node))

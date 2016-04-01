@@ -13,4 +13,6 @@
 	   #:3-node
 	   #:insert
 	   #:insert-before
-	   #:insert-after))
+	   #:insert-after
+	   #:split
+	   #:replace))

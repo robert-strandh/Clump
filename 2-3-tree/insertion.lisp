@@ -14,6 +14,9 @@
 	  :parent tree
 	  :tree tree)))
 
-;;; In NODE, split OLD-CHILD into two children, NEW-CHILD-1 and
-;;; NEW-CHILD-2.
+;;; In NODE, split child node OLD-CHILD into two child nodes,
+;;; NEW-CHILD-1 and NEW-CHILD-2.
 (defgeneric split (node old-child new-child-1 new-child-2))
+
+;; In NODE, replace child OLD-CHILD with the node NEW-CHILD.
+(defgeneric replace (node old-child new-child))

@@ -4,4 +4,5 @@
   :depends-on (:acclimation)
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "2-3-tree")))

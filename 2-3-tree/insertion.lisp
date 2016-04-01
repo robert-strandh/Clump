@@ -77,3 +77,9 @@
 		 (make-instance (2-node-class (tree node))
 		   :left new-child-1
 		   :right new-child-2)))))
+
+(defmethod split ((tree tree) old-child new-child-1 new-child-2)
+  (setf (contents tree)
+	(make-instance (2-node-class tree)
+	  :left new-child-1
+	  :right new-child-2)))

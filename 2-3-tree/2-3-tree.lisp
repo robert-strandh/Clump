@@ -2,3 +2,6 @@
 
 (defclass tree ()
   ((%contents :initform nil :accessor contents)))
+
+(defclass node ()
+  ((%parent :initarg :parent :accessor parent)))

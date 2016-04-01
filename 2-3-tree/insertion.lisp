@@ -20,3 +20,8 @@
 
 ;; In NODE, replace child OLD-CHILD with the node NEW-CHILD.
 (defgeneric replace (node old-child new-child))
+
+(defmethod replace ((node 2-node) old-child new-child)
+  (if (eq old-child (left node))
+      (setf (left node) new-child)
+      (setf (right node) new-child)))

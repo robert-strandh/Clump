@@ -2,7 +2,8 @@
 
 (defpackage #:clump-2-3-tree
   (:use #:common-lisp)
-  (:shadow #:replace)
+  (:shadow #:replace
+	   #:delete)
   (:export #:tree
 	   #:contents
 	   #:leaf-class
@@ -15,4 +16,5 @@
 	   #:insert-before
 	   #:insert-after
 	   #:split
-	   #:replace))
+	   #:replace
+	   #:delete))

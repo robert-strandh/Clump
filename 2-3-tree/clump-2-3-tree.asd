@@ -6,4 +6,5 @@
   :components
   ((:file "packages")
    (:file "2-3-tree")
-   (:file "insertion")))
+   (:file "insertion")
+   (:file "deletion")))

@@ -8,3 +8,7 @@
 
 (defmethod delete ((leaf leaf))
   (delete-child (parent leaf) leaf))
+
+(defmethod delete-child ((tree tree) child)
+  (declare (ignore child))
+  (setf (contents tree) nil))

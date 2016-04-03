@@ -8,4 +8,5 @@
    (:file "2-3-tree")
    (:file "insertion")
    (:file "deletion")
-   (:file "conditions")))
+   (:file "conditions")
+   (:file "condition-reporters-english")))

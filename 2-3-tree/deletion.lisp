@@ -12,3 +12,9 @@
 (defmethod delete-child ((tree tree) child)
   (declare (ignore child))
   (setf (contents tree) nil))
+
+(defmethod delete-child ((node 2-node) child)
+  (replace-and-shrink (parent node)
+		      (if (eq child (left node))
+			  (right node)
+			  (left node))))

@@ -4,7 +4,7 @@
 
 (defgeneric delete-child (parent child))
 
-(defgeneric replace-and-shrink (parent old-child new-))
+(defgeneric replace-and-shrink (parent old-child new-child))
 
 (defmethod delete ((leaf leaf))
   (delete-child (parent leaf) leaf))
@@ -39,3 +39,40 @@
 		     (make-instance 2-node-class
 		       :left (left node)
 		       :right (middle node)))))))
+
+(defmethod replace-and-shrink ((node 2-node) old-child new-child)
+  (let ((2-node-class (2-node-class (tree node)))
+	(3-node-class (3-node-class (tree node)))
+	(left (left node))
+	(right (right node)))
+    (if (eq old-child left)
+	(if (3-node-p right)
+	    (setf (%left node)
+		  (make-instance 2-node-class
+		    :left new-child
+		    :right (left right))
+		  (%right node)
+		  (make-instance 2-node-class
+		    :left (middle right)
+		    :right (right right)))
+	    (replace-and-shrink (parent node)
+				node
+				(make-instance 3-node-class
+				  :left new-child
+				  :middle (left right)
+				  :right (right right))))
+	(if (3-node-p left)
+	    (setf (%right node)
+		  (make-instance 2-node-class
+		    :left (right left)
+		    :right new-child)
+		  (%left node)
+		  (make-instance 2-node-class
+		    :left (left left)
+		    :right (middle left)))
+	    (replace-and-shrink (parent node)
+				node
+				(make-instance 3-node-class
+				  :left (left left)
+				  :middle (right left)
+				  :right new-child))))))

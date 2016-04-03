@@ -17,6 +17,10 @@
   ((%left :initarg :left :accessor left)
    (%right :initarg :right :accessor right)))
 
+(defgeneric 2-node-p (object)
+  (:method (object) nil)
+  (:method ((node 2-node)) t))
+
 (defclass 3-node (node)
   ((%left :initarg :left :accessor left)
    (%middle :initarg :middle :accessor middle)

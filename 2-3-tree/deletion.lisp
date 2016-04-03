@@ -4,5 +4,7 @@
 
 (defgeneric delete-child (parent child))
 
+(defgeneric replace-and-shrink (parent child))
+
 (defmethod delete ((leaf leaf))
   (delete-child (parent leaf) leaf))

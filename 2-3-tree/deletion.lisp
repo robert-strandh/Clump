@@ -3,3 +3,6 @@
 (defgeneric delete (leaf))
 
 (defgeneric delete-child (parent child))
+
+(defmethod delete ((leaf leaf))
+  (delete-child (parent leaf) leaf))

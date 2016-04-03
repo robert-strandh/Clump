@@ -2,3 +2,4 @@
 
 (defgeneric delete (leaf))
 
+(defgeneric delete-child (parent child))

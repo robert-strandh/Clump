@@ -9,4 +9,5 @@
    (:file "insertion")
    (:file "deletion")
    (:file "conditions")
+   (:file "docstrings-english")
    (:file "condition-reporters-english")))

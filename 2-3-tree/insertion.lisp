@@ -5,7 +5,8 @@
 
 (defmethod insert :before (object (tree tree))
   (unless (null (contents tree))
-    (error "Do this error message better.")))
+    (error 'tree-for-insertion-must-be-empty
+	   :tree tree)))
 
 (defmethod insert (object (tree tree))
   (setf (contents tree)

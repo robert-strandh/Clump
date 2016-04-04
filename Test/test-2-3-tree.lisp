@@ -23,6 +23,12 @@
 (defclass 3-node-size (size-mixin clump-2-3-tree:3-node)
   ())
 
+(defmethod recompute-size ((node 3-node-size))
+  (setf (size node)
+	(+ (size (clump-2-3-tree:left node))
+	   (size (clump-2-3-tree:middle node))
+	   (size (clump-2-3-tree:right node)))))
+
 (defmethod initialize-instance :after ((object 3-node-size) &key)
   (reinitialize-instance
    object

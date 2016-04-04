@@ -4,7 +4,7 @@
   ((%size :initarg :size :accessor size)))
 
 (defclass leaf-size (size-mixin clump-2-3-tree:leaf)
-  ()
+  ((%contents :initarg :contents :reader contents))
   (:default-initargs :size 1))
 
 (defclass 2-node-size (size-mixin clump-2-3-tree:2-node)

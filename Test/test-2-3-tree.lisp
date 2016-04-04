@@ -55,6 +55,7 @@
 (defclass size-tree (clump-2-3-tree:tree)
   ()
   (:default-initargs
+   :leaf-class 'leaf-size
    :2-node-class '2-node-size
    :3-node-class '3-node-size))
 

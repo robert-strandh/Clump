@@ -86,3 +86,23 @@
 	   (find-leaf middle (- leaf-number (size left))))
 	  (t
 	   (find-leaf right (- leaf-number (+ (size left) (size middle))))))))
+
+(defgeneric to-list (node-or-tree))
+
+(defmethod to-list ((tree size-tree))
+  (let ((contents (clump-2-3-tree:contents tree)))
+    (if (null contents)
+	'()
+	(to-list contents))))
+
+(defmethod to-list ((node leaf-size))
+  (list (contents node)))
+
+(defmethod to-list ((node 2-node-size))
+  (append (to-list (clump-2-3-tree:left node))
+	  (to-list (clump-2-3-tree:right node))))
+
+(defmethod to-list ((node 3-node-size))
+  (append (to-list (clump-2-3-tree:left node))
+	  (to-list (clump-2-3-tree:middle node))
+	  (to-list (clump-2-3-tree:right node))))

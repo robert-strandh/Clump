@@ -76,3 +76,74 @@
 				  :left (left left)
 				  :middle (right left)
 				  :right new-child))))))
+
+(defmethod replace-and-shrink ((node 3-node) old-child new-child)
+  (let ((2-node-class (2-node-class (tree node)))
+	(3-node-class (3-node-class (tree node)))
+	(left (left node))
+	(middle (middle node))
+	(right (right node)))
+    (cond ((eq old-child left)
+	   (if (3-node-p middle)
+	       (setf (%left node)
+		     (make-instance 2-node-class
+		       :left new-child
+		       :right (left middle))
+		     (%middle node)
+		     (make-instance 2-node-class
+		       :left (middle middle)
+		       :right (right middle)))
+	       ;; MIDDLE is a 2-node.  Turn NEW-CHILD and the two
+	       ;; children of MIDDLE into a 3-node.  Replace NODE
+	       ;; (which is a 3-node) with a 2-node.
+	       (replace (parent node)
+			node
+			(make-instance 2-node-class
+			  :left (make-instance 3-node-class
+				  :left new-child
+				  :middle (left middle)
+				  :right (right middle))
+			  :right right))))
+	  ((eq old-child middle)
+	   (if (3-node-p left)
+	       (setf (%middle node)
+		     (make-instance 2-node-class
+		       :left (right left)
+		       :right new-child)
+		     (%left node)
+		     (make-instance 2-node-class
+		       :left (left left)
+		       :right (middle left)))
+	       ;; LEFT is a 2-node.  Turn the two children of LEFT and
+	       ;; NEW-CHILD into a 3-node.  Replace NODE (which is a
+	       ;; 3-node) with a 2-node.
+	       (replace (parent node)
+			node
+			(make-instance 2-node-class
+			  :left (make-instance 3-node-class
+				  :left (left left)
+				  :middle (right left)
+				  :right new-child)
+			  :right right))))
+	  (t
+	   ;; OLD-CHILD is identical to RIGHT.
+	   (if (3-node-p middle)
+	       (setf (%right node)
+		     (make-instance 2-node-class
+		       :left (right middle)
+		       :right new-child)
+		     (%middle node)
+		     (make-instance 2-node-class
+		       :left (left middle)
+		       :right (middle middle)))
+	       ;; MIDDLE is a 2-node.  Turn the two children of MIDDLE
+	       ;; and NEW-CHILD into a 3-node.  Replace NODE (which is
+	       ;; a 3-node) with a 2-node.
+	       (replace (parent node)
+			node
+			(make-instance 2-node-class
+			  :left (left node)
+			  :right (make-instance 3-node-class
+				   :left (left middle)
+				   :middle (middle middle)
+				   :right new-child))))))))

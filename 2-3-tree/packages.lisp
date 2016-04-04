@@ -12,6 +12,9 @@
 	   #:leaf
 	   #:2-node
 	   #:3-node
+	   #:left
+	   #:right
+	   #:middle
 	   #:insert
 	   #:insert-before
 	   #:insert-after

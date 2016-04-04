@@ -21,4 +21,5 @@
 	   #:split
 	   #:replace
 	   #:delete
-	   #:delete-child))
+	   #:delete-child
+	   #:replace-and-shrink))

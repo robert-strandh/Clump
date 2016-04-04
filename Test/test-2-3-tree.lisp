@@ -10,6 +10,12 @@
 (defclass 2-node-size (size-mixin clump-2-3-tree:2-node)
   ())
 
+(defmethod initialize-instance :after ((object 2-node-size) &key)
+  (reinitialize-instance
+   object
+   :size (+ (size (clump-2-3-tree:left object))
+	    (size (clump-2-3-tree:right object)))))
+
 (defclass 3-node-size (size-mixin clump-2-3-tree:3-node)
   ())
 

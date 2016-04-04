@@ -55,33 +55,40 @@
 		   :right new-child-2)))))
 
 (defmethod split ((node 3-node) old-child new-child-1 new-child-2)
-  (cond ((eq old-child (left node))
-	 (split (parent node)
-		node
-		(make-instance (2-node-class (tree node))
-		  :left new-child-1
-		  :right new-child-2)
-		(make-instance (2-node-class (tree node))
-		  :left (middle node)
-		  :right (right node))))
-	((eq old-child (middle node))
-	 (split (parent node)
-		node
-		(make-instance (2-node-class (tree node))
-		  :left (left node)
-		  :right new-child-1)
-		(make-instance (2-node-class (tree node))
-		  :left new-child-1
-		  :right (right node))))
-	(t
-	 (split (parent node)
-		node
-		(make-instance (2-node-class (tree node))
-		  :left (left node)
-		  :right (middle node))
-		(make-instance (2-node-class (tree node))
-		  :left new-child-1
-		  :right new-child-2)))))
+  (let ((parent (parent node)))
+    (cond ((eq old-child (left node))
+	   (split (parent node)
+		  node
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left new-child-1
+		    :right new-child-2)
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left (middle node)
+		    :right (right node))))
+	  ((eq old-child (middle node))
+	   (split (parent node)
+		  node
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left (left node)
+		    :right new-child-1)
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left new-child-1
+		    :right (right node))))
+	  (t
+	   (split (parent node)
+		  node
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left (left node)
+		    :right (middle node))
+		  (make-instance (2-node-class (tree node))
+		    :parent parent
+		    :left new-child-1
+		    :right new-child-2))))))
 
 (defmethod split ((tree tree) old-child new-child-1 new-child-2)
   (setf (contents tree)

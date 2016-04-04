@@ -20,4 +20,5 @@
 	   #:insert-after
 	   #:split
 	   #:replace
-	   #:delete))
+	   #:delete
+	   #:delete-child))

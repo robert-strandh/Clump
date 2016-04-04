@@ -106,3 +106,41 @@
   (append (to-list (clump-2-3-tree:left node))
 	  (to-list (clump-2-3-tree:middle node))
 	  (to-list (clump-2-3-tree:right node))))
+
+(defun test-2-3-tree-1 (n)
+  (let ((operation :insert)
+	(list '())
+	(tree (make-instance 'size-tree)))
+    (loop repeat n
+	  do (when (< (random 1d0) 1d-1)
+	       (setf operation
+		     (if (eq operation :insert)
+			 :delete
+			 :insert)))
+	     (if (or (eq operation :insert) (null list))
+		 (let* ((element (random 1000000000))
+			(leaf (make-instance 'leaf-size :contents element)))
+		   (if (null list)
+		       (progn (setf list (list element))
+			      (clump-2-3-tree:insert leaf tree))
+		       (let ((position (random (1+ (length list)))))
+			 (if (or (zerop position)
+				 (< (random 1d0) 0.5d0))
+			     (let ((neighbor (find-leaf tree position)))
+			       (clump-2-3-tree:insert-before leaf neighbor)
+			       (setf list
+				     (append (subseq list 0 position)
+					     (list element)
+					     (subseq list position))))
+			     (let ((neighbor (find-leaf tree (1- position))))
+			       (clump-2-3-tree:insert-after leaf neighbor)
+			       (setf list
+				     (append (subseq list 0 (1+ position))
+					     (list element)
+					     (subseq list (1+ position)))))))))
+		 (let* ((position (random (length list)))
+			(leaf (find-leaf tree position)))
+		   (clump-2-3-tree:delete leaf)
+		   (setf list
+			 (append (subseq list 0 position)
+				 (subseq list (1+ position)))))))))

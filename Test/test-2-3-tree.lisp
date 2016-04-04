@@ -57,3 +57,32 @@
   (:default-initargs
    :2-node-class '2-node-size
    :3-node-class '3-node-size))
+
+(defgeneric find-leaf (node-or-tree leaf-number))
+
+(defmethod find-leaf ((tree size-tree) leaf-number)
+  (let ((contents (clump-2-3-tree:contents tree)))
+    (assert (not (null contents)))
+    (find-leaf contents leaf-number)))
+
+(defmethod find-leaf ((node leaf-size) leaf-number)
+  (assert (zerop leaf-number))
+  node)
+
+(defmethod find-leaf ((node 2-node-size) leaf-number)
+  (let ((left (clump-2-3-tree:left node))
+	(right (clump-2-3-tree:right node)))
+    (if (< leaf-number (size left))
+	(find-leaf left leaf-number)
+	(find-leaf right (- leaf-number (size left))))))
+
+(defmethod find-leaf ((node 3-node-size) leaf-number)
+  (let ((left (clump-2-3-tree:left node))
+	(middle (clump-2-3-tree:middle node))
+	(right (clump-2-3-tree:right node)))
+    (cond ((< leaf-number (size left))
+	   (find-leaf left leaf-number))
+	  ((< leaf-number (+ (size left) (size middle)))
+	   (find-leaf middle (- leaf-number (size left))))
+	  (t
+	   (find-leaf right (- leaf-number (+ (size left) (size middle))))))))

@@ -37,6 +37,11 @@
 (defmethod initialize-instance :after ((object 3-node-size) &key)
   (recompute-size object))
 
+(defmethod clump-2-3-tree:replace :after
+    ((node 3-node-size) old-child new-child)
+  (declare (ignore old-child new-child))
+  (recompute-size node))
+
 (defclass size-tree (clump-2-3-tree:tree)
   ()
   (:default-initargs

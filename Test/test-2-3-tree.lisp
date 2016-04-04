@@ -30,11 +30,7 @@
 	   (size (clump-2-3-tree:right node)))))
 
 (defmethod initialize-instance :after ((object 3-node-size) &key)
-  (reinitialize-instance
-   object
-   :size (+ (size (clump-2-3-tree:left object))
-	    (size (clump-2-3-tree:middle object))
-	    (size (clump-2-3-tree:right object)))))
+  (recompute-size object))
 
 (defclass size-tree (clump-2-3-tree:tree)
   ()

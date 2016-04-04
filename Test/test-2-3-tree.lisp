@@ -1,7 +1,7 @@
 (cl:in-package #:clump-test)
 
 (defclass size-mixin ()
-  ((%size :initarg :size :reader size)))
+  ((%size :initarg :size :accessor size)))
 
 (defclass leaf-size (size-mixin clump-2-3-tree:leaf)
   ()
@@ -13,10 +13,9 @@
 (defgeneric recompute-size (node))
 
 (defmethod recompute-size ((node 2-node-size))
-  (reinitialize-instance
-   node
-   :size (+ (size (clump-2-3-tree:left node))
-	    (size (clump-2-3-tree:right node)))))
+  (setf (size node)
+	(+ (size (clump-2-3-tree:left node))
+	   (size (clump-2-3-tree:right node)))))
 
 (defmethod initialize-instance :after ((object 2-node-size) &key)
   (recompute-size object))

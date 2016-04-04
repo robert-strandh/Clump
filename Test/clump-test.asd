@@ -16,4 +16,5 @@
    (:file "check-parents")
    (:file "test-rotation")
    (:file "test")
-   (:file "test-splay")))
+   (:file "test-splay")
+   (:file "test-2-3-tree")))

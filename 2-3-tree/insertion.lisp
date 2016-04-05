@@ -93,16 +93,19 @@
 (defmethod split ((tree tree) old-child new-child-1 new-child-2)
   (setf (contents tree)
 	(make-instance (2-node-class tree)
+	  :parent tree
 	  :left new-child-1
 	  :right new-child-2)))
 
 (defgeneric insert-before (object leaf))
 
 (defmethod insert-before (object (leaf leaf))
-  (let ((tree (tree leaf)))
+  (let ((tree (tree leaf))
+	(parent (parent leaf)))
     (split (parent leaf)
 	   leaf
 	   (make-instance (leaf-class tree)
+	     :parent parent
 	     :tree tree
 	     :contents object)
 	   leaf)))
@@ -110,10 +113,12 @@
 (defgeneric insert-after (object leaf))
 
 (defmethod insert-after (object (leaf leaf))
-  (let ((tree (tree leaf)))
+  (let ((tree (tree leaf))
+	(parent (parent leaf)))
     (split (parent leaf)
 	   leaf
 	   leaf
 	   (make-instance (leaf-class tree)
+	     :parent parent
 	     :tree tree
 	     :contents object))))

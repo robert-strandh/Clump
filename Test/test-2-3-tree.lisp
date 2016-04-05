@@ -23,9 +23,12 @@
 (defgeneric recompute-size (node))
 
 (defmethod recompute-size ((node 2-node-size))
-  (setf (size node)
-	(+ (size (clump-2-3-tree:left node))
-	   (size (clump-2-3-tree:right node)))))
+  (let ((old-size (size node))
+	(new-size (+ (size (clump-2-3-tree:left node))
+		     (size (clump-2-3-tree:right node)))))
+    (setf (size node) new-size)
+    (unless (= old-size new-size))
+    (recompute-size (clump-2-3-tree:parent node))))
 
 (defmethod initialize-instance :after ((object 2-node-size) &key)
   (recompute-size object))
@@ -39,10 +42,13 @@
   ())
 
 (defmethod recompute-size ((node 3-node-size))
-  (setf (size node)
-	(+ (size (clump-2-3-tree:left node))
-	   (size (clump-2-3-tree:middle node))
-	   (size (clump-2-3-tree:right node)))))
+  (let ((old-size (size node))
+	(new-size (+ (size (clump-2-3-tree:left node))
+		     (size (clump-2-3-tree:middle node))
+		     (size (clump-2-3-tree:right node)))))
+    (setf (size node) new-size)
+    (unless (= old-size new-size))
+    (recompute-size (clump-2-3-tree:parent node))))
 
 (defmethod initialize-instance :after ((object 3-node-size) &key)
   (recompute-size object))

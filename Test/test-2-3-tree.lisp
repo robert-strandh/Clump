@@ -8,6 +8,11 @@
   (declare (ignore old-child new-child))
   (recompute-size node))
 
+(defmethod clump-2-3-tree:split :after
+    ((node size-mixin) old-child new-child-1 new-child-2)
+  (declare (ignore old-child new-child-1 new-child-2))
+  (recompute-size node))
+
 (defclass leaf-size (size-mixin clump-2-3-tree:leaf)
   ()
   (:default-initargs :size 1))

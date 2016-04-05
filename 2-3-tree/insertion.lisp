@@ -39,31 +39,37 @@
   (setf (contents tree) new-child))
 
 (defmethod split ((node 2-node) old-child new-child-1 new-child-2)
-  (let ((parent (parent node)))
+  (let ((parent (parent node))
+	(tree (tree node)))
     (replace parent
 	     node
 	     (if (eq old-child (left node))
 		 (make-instance (3-node-class (tree node))
+		   :tree tree
 		   :parent parent
 		   :left new-child-1
 		   :middle new-child-2
 		   :right (right node))
 		 (make-instance (3-node-class (tree node))
+		   :tree tree
 		   :parent parent
 		   :left (left node)
 		   :middle new-child-1
 		   :right new-child-2)))))
 
 (defmethod split ((node 3-node) old-child new-child-1 new-child-2)
-  (let ((parent (parent node)))
+  (let ((parent (parent node))
+	(tree (tree node)))
     (cond ((eq old-child (left node))
 	   (split (parent node)
 		  node
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left new-child-1
 		    :right new-child-2)
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left (middle node)
 		    :right (right node))))
@@ -71,10 +77,12 @@
 	   (split (parent node)
 		  node
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left (left node)
 		    :right new-child-1)
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left new-child-1
 		    :right (right node))))
@@ -82,10 +90,12 @@
 	   (split (parent node)
 		  node
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left (left node)
 		    :right (middle node))
 		  (make-instance (2-node-class (tree node))
+		    :tree tree
 		    :parent parent
 		    :left new-child-1
 		    :right new-child-2))))))
@@ -93,6 +103,7 @@
 (defmethod split ((tree tree) old-child new-child-1 new-child-2)
   (setf (contents tree)
 	(make-instance (2-node-class tree)
+	  :tree tree
 	  :parent tree
 	  :left new-child-1
 	  :right new-child-2)))

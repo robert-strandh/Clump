@@ -84,7 +84,7 @@
 		  (make-instance (2-node-class (tree node))
 		    :tree tree
 		    :parent parent
-		    :left new-child-1
+		    :left new-child-2
 		    :right (right node))))
 	  (t
 	   (split (parent node)

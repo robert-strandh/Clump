@@ -3,6 +3,11 @@
 (defclass size-mixin ()
   ((%size :initarg :size :accessor size)))
 
+(defmethod clump-2-3-tree:replace :after
+    ((node size-mixin) old-child new-child)
+  (declare (ignore old-child new-child))
+  (recompute-size node))
+
 (defclass leaf-size (size-mixin clump-2-3-tree:leaf)
   ()
   (:default-initargs :size 1))
@@ -20,11 +25,6 @@
 (defmethod initialize-instance :after ((object 2-node-size) &key)
   (recompute-size object))
 
-(defmethod clump-2-3-tree:replace :after
-    ((node 2-node-size) old-child new-child)
-  (declare (ignore old-child new-child))
-  (recompute-size node))
-
 (defmethod clump-2-3-tree:replace-and-shrink :after
     ((node 2-node-size) old-child new-child)
   (declare (ignore old-child new-child))
@@ -41,11 +41,6 @@
 
 (defmethod initialize-instance :after ((object 3-node-size) &key)
   (recompute-size object))
-
-(defmethod clump-2-3-tree:replace :after
-    ((node 3-node-size) old-child new-child)
-  (declare (ignore old-child new-child))
-  (recompute-size node))
 
 (defmethod clump-2-3-tree:replace-and-shrink :after
     ((node 3-node-size) old-child new-child)

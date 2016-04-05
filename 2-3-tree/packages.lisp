@@ -12,6 +12,7 @@
 	   #:leaf
 	   #:2-node
 	   #:3-node
+	   #:parent
 	   #:left
 	   #:right
 	   #:middle

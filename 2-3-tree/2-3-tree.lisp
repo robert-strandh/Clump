@@ -30,7 +30,7 @@
    (%middle :initarg :middle :reader middle :writer (setf %middle))
    (%right :initarg :right :reader right :writer (setf %right))))
 
-(defmethod initialize-instance :after ((node 2-node) &key)
+(defmethod initialize-instance :after ((node 3-node) &key)
   (setf (parent (left node)) node
 	(parent (middle node)) node
 	(parent (right node)) node))

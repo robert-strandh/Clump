@@ -24,15 +24,15 @@
 
 (defmethod replace ((node 2-node) old-child new-child)
   (if (eq old-child (left node))
-      (setf (left node) new-child)
-      (setf (right node) new-child)))
+      (setf (%left node) new-child)
+      (setf (%right node) new-child)))
 
 (defmethod replace ((node 3-node) old-child new-child)
   (if (eq old-child (left node))
-      (setf (left node) new-child)
+      (setf (%left node) new-child)
       (if (eq old-child (middle node))
-	  (setf (middle node) new-child)
-	  (setf (right node) new-child))))
+	  (setf (%middle node) new-child)
+	  (setf (%right node) new-child))))
 
 (defmethod replace ((tree tree) old-child new-child)
   (declare (ignore old-child))

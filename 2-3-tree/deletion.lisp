@@ -21,22 +21,26 @@
 			  (left node))))
 
 (defmethod delete-child ((node 3-node) child)
-  (let ((2-node-class (2-node-class (tree node))))
+  (let ((2-node-class (2-node-class (tree node)))
+	(parent (parent node)))
     (if (eq child (left node))
 	(replace (parent node)
 		 node
 		 (make-instance 2-node-class
+		   :parent parent
 		   :left (middle node)
 		   :right (right node)))
 	(if (eq child (middle node))
 	    (replace (parent node)
 		     node
 		     (make-instance 2-node-class
+		       :parent parent
 		       :left (left node)
 		       :right (right node)))
 	    (replace (parent node)
 		     node
 		     (make-instance 2-node-class
+		       :parent parent
 		       :left (left node)
 		       :right (middle node)))))))
 
@@ -80,6 +84,7 @@
 (defmethod replace-and-shrink ((node 3-node) old-child new-child)
   (let ((2-node-class (2-node-class (tree node)))
 	(3-node-class (3-node-class (tree node)))
+	(parent (parent node))
 	(left (left node))
 	(middle (middle node))
 	(right (right node)))
@@ -99,6 +104,7 @@
 	       (replace (parent node)
 			node
 			(make-instance 2-node-class
+			  :parent parent
 			  :left (make-instance 3-node-class
 				  :left new-child
 				  :middle (left middle)
@@ -120,6 +126,7 @@
 	       (replace (parent node)
 			node
 			(make-instance 2-node-class
+			  :parent parent
 			  :left (make-instance 3-node-class
 				  :left (left left)
 				  :middle (right left)
@@ -142,6 +149,7 @@
 	       (replace (parent node)
 			node
 			(make-instance 2-node-class
+			  :parent parent
 			  :left (left node)
 			  :right (make-instance 3-node-class
 				   :left (left middle)

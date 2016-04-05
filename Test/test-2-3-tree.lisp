@@ -59,6 +59,9 @@
    :2-node-class '2-node-size
    :3-node-class '3-node-size))
 
+(defmethod recompute-size ((tree size-tree))
+  nil)
+
 (defgeneric find-leaf (node-or-tree leaf-number))
 
 (defmethod find-leaf ((tree size-tree) leaf-number)

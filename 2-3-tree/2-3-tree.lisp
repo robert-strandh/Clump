@@ -17,6 +17,10 @@
   ((%left :initarg :left :reader left :writer (setf %left))
    (%right :initarg :right :reader right :writer (setf %right))))
 
+(defmethod initialize-instance :after ((node 2-node) &key)
+  (setf (parent (left node)) node
+	(parent (right node)) node))
+
 (defgeneric 2-node-p (object)
   (:method (object) nil)
   (:method ((node 2-node)) t))
@@ -25,6 +29,11 @@
   ((%left :initarg :left :reader left :writer (setf %left))
    (%middle :initarg :middle :reader middle :writer (setf %middle))
    (%right :initarg :right :reader right :writer (setf %right))))
+
+(defmethod initialize-instance :after ((node 2-node) &key)
+  (setf (parent (left node)) node
+	(parent (middle node)) node
+	(parent (right node)) node))
 
 (defgeneric 3-node-p (object)
   (:method (object) nil)

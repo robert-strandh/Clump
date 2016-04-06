@@ -184,5 +184,5 @@
 			  :right (make-instance 3-node-class
 				   :tree tree
 				   :left (left middle)
-				   :middle (middle middle)
+				   :middle (right middle)
 				   :right new-child))))))))

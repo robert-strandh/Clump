@@ -44,6 +44,10 @@
 		       :left (left node)
 		       :right (middle node)))))))
 
+(defmethod replace-and-shrink ((tree tree) old-child new-child)
+  (declare (ignore old-child))
+  (setf (contents tree) new-child))
+
 (defmethod replace-and-shrink ((node 2-node) old-child new-child)
   (let ((2-node-class (2-node-class (tree node)))
 	(3-node-class (3-node-class (tree node)))

@@ -22,11 +22,13 @@
 
 (defmethod delete-child ((node 3-node) child)
   (let ((2-node-class (2-node-class (tree node)))
+	(tree (tree node))
 	(parent (parent node)))
     (if (eq child (left node))
 	(replace (parent node)
 		 node
 		 (make-instance 2-node-class
+		   :tree tree
 		   :parent parent
 		   :left (middle node)
 		   :right (right node)))
@@ -34,12 +36,14 @@
 	    (replace (parent node)
 		     node
 		     (make-instance 2-node-class
+		       :tree tree
 		       :parent parent
 		       :left (left node)
 		       :right (right node)))
 	    (replace (parent node)
 		     node
 		     (make-instance 2-node-class
+		       :tree tree
 		       :parent parent
 		       :left (left node)
 		       :right (middle node)))))))

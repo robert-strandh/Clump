@@ -50,6 +50,7 @@
 
 (defmethod replace-and-shrink ((tree tree) old-child new-child)
   (declare (ignore old-child))
+  (setf (parent new-child) tree)
   (setf (contents tree) new-child))
 
 (defmethod replace-and-shrink ((node 2-node) old-child new-child)

@@ -121,6 +121,8 @@
 		       :right (left middle))
 		     (%middle node)
 		     (make-instance 2-node-class
+		       :tree tree
+		       :parent node
 		       :left (middle middle)
 		       :right (right middle)))
 	       ;; MIDDLE is a 2-node.  Turn NEW-CHILD and the two
